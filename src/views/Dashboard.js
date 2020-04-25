@@ -72,8 +72,8 @@ class Dashboard extends React.Component {
                 <CardHeader>
                   <Row>
                     <Col className="text-left" sm="6">
-                      <h5 className="card-category">Total Shipments</h5>
-                      <CardTitle tag="h2">Performance</CardTitle>
+                    <h5 className="card-category">Power Consumption</h5>
+                      <CardTitle tag="h2">Energy Levels</CardTitle>
                     </Col>
                     <Col sm="6">
                       <ButtonGroup
@@ -97,7 +97,7 @@ class Dashboard extends React.Component {
                             type="radio"
                           />
                           <span className="d-none d-sm-block d-md-block d-lg-block d-xl-block">
-                            Accounts
+                            Yesterday
                           </span>
                           <span className="d-block d-sm-none">
                             <i className="tim-icons icon-single-02" />
@@ -119,7 +119,7 @@ class Dashboard extends React.Component {
                             type="radio"
                           />
                           <span className="d-none d-sm-block d-md-block d-lg-block d-xl-block">
-                            Purchases
+                            Today
                           </span>
                           <span className="d-block d-sm-none">
                             <i className="tim-icons icon-gift-2" />
@@ -141,7 +141,7 @@ class Dashboard extends React.Component {
                             type="radio"
                           />
                           <span className="d-none d-sm-block d-md-block d-lg-block d-xl-block">
-                            Sessions
+                            Prediction
                           </span>
                           <span className="d-block d-sm-none">
                             <i className="tim-icons icon-tap-02" />
@@ -166,10 +166,10 @@ class Dashboard extends React.Component {
             <Col lg="4">
               <Card className="card-chart">
                 <CardHeader>
-                  <h5 className="card-category">Total Shipments</h5>
+                  <h5 className="card-category">Power Consumption</h5>
                   <CardTitle tag="h3">
                     <i className="tim-icons icon-bell-55 text-info" />{" "}
-                    763,215
+                    3,215 Kwh
                   </CardTitle>
                 </CardHeader>
                 <CardBody>
@@ -185,10 +185,10 @@ class Dashboard extends React.Component {
             <Col lg="4">
               <Card className="card-chart">
                 <CardHeader>
-                  <h5 className="card-category">Daily Sales</h5>
+                  <h5 className="card-category">Current Balance</h5>
                   <CardTitle tag="h3">
                     <i className="tim-icons icon-delivery-fast text-primary" />{" "}
-                    3,500€
+                    ₦2,500
                   </CardTitle>
                 </CardHeader>
                 <CardBody>
@@ -204,9 +204,9 @@ class Dashboard extends React.Component {
             <Col lg="4">
               <Card className="card-chart">
                 <CardHeader>
-                  <h5 className="card-category">Completed Tasks</h5>
+                  <h5 className="card-category">Completed Alerts</h5>
                   <CardTitle tag="h3">
-                    <i className="tim-icons icon-send text-success" /> 12,100K
+                    <i className="tim-icons icon-send text-success" /> 3,100Kwh
                   </CardTitle>
                 </CardHeader>
                 <CardBody>
@@ -224,7 +224,7 @@ class Dashboard extends React.Component {
             <Col lg="6" md="12">
               <Card className="card-tasks">
                 <CardHeader>
-                  <h6 className="title d-inline">Tasks(5)</h6>
+                  <h6 className="title d-inline">News Update</h6>
                   <p className="card-category d-inline"> today</p>
                   <UncontrolledDropdown>
                     <DropdownToggle
@@ -491,60 +491,52 @@ class Dashboard extends React.Component {
             <Col lg="6" md="12">
               <Card>
                 <CardHeader>
-                  <CardTitle tag="h4">Simple Table</CardTitle>
+                  <CardTitle tag="h4">Past Payments</CardTitle>
                 </CardHeader>
                 <CardBody>
                   <Table className="tablesorter" responsive>
                     <thead className="text-primary">
                       <tr>
-                        <th>Name</th>
-                        <th>Country</th>
-                        <th>City</th>
+                        <th>Month</th>
+                        <th>Power Usage</th>
                         <th className="text-center">Salary</th>
                       </tr>
                     </thead>
                     <tbody>
                       <tr>
-                        <td>Dakota Rice</td>
-                        <td>Niger</td>
-                        <td>Oud-Turnhout</td>
+                        <td>Janurary</td>
+                        <td>2,550 Kwh</td>
                         <td className="text-center">$36,738</td>
                       </tr>
                       <tr>
-                        <td>Minerva Hooper</td>
-                        <td>Curaçao</td>
-                        <td>Sinaai-Waas</td>
-                        <td className="text-center">$23,789</td>
+                        <td>Feburary</td>
+                        <td>2,550 Kwh</td>
+                        <td className="text-center">$36,738</td>
                       </tr>
                       <tr>
-                        <td>Sage Rodriguez</td>
-                        <td>Netherlands</td>
-                        <td>Baileux</td>
-                        <td className="text-center">$56,142</td>
+                        <td>March</td>
+                        <td>2,550 Kwh</td>
+                        <td className="text-center">$36,738</td>
                       </tr>
                       <tr>
-                        <td>Philip Chaney</td>
-                        <td>Korea, South</td>
-                        <td>Overland Park</td>
-                        <td className="text-center">$38,735</td>
+                        <td>April</td>
+                        <td>2,550 Kwh</td>
+                        <td className="text-center">$36,738</td>
                       </tr>
                       <tr>
-                        <td>Doris Greene</td>
-                        <td>Malawi</td>
-                        <td>Feldkirchen in Kärnten</td>
-                        <td className="text-center">$63,542</td>
+                        <td>May</td>
+                        <td>2,650 Kwh</td>
+                        <td className="text-center">$37,838</td>
+                      </tr> 
+                      <tr>
+                        <td>June</td>
+                        <td>2,350 Kwh</td>
+                        <td className="text-center">$35,738</td>
                       </tr>
                       <tr>
-                        <td>Mason Porter</td>
-                        <td>Chile</td>
-                        <td>Gloucester</td>
-                        <td className="text-center">$78,615</td>
-                      </tr>
-                      <tr>
-                        <td>Jon Porter</td>
-                        <td>Portugal</td>
-                        <td>Gloucester</td>
-                        <td className="text-center">$98,615</td>
+                        <td>July</td>
+                        <td>2,450 Kwh</td>
+                        <td className="text-center">$36,998</td>
                       </tr>
                     </tbody>
                   </Table>
