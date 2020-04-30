@@ -16,5 +16,3 @@ app.get('/*', function (req, res) {
 });app.listen(port);
 
 
-const env = process.env.NODE_ENV;
-console.log("Working in", env)
