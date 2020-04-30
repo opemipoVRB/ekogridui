@@ -121,7 +121,7 @@ const Header = ({
                       className="list-reset header-nav-right"
                     >
                       <li>
-                        <Link to="register/stakeholder" className="button button-primary button-wide-mobile button-sm" onClick={closeMenu}>Register with your Meter No</Link>
+                        <Link to="register/subscriber" className="button button-primary button-wide-mobile button-sm" onClick={closeMenu}>Register with your Meter No</Link>
                       </li>
                         <li>
                         <Link to="/login" className="button button-primary button-wide-mobile button-sm" onClick={closeMenu}>Login</Link>
