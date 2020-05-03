@@ -4,6 +4,7 @@ import Notifications from "./views/Notifications";
 import UserProfile from "./views/UserProfile";
 import TableList from "./views/TableList";
 import Typography from "./views/Typography";
+import Map from "./views/Map";
 
 
 var routes =[
@@ -19,35 +20,35 @@ var routes =[
     name: "Icons",
     icon: "tim-icons icon-atom",
     component: Icons,
-    layout: "/subscriber"
+    layout: "/stakeholder"
   },
   {
     path: "/map",
     name: "Map",
     icon: "tim-icons icon-pin",
     component: Map,
-    layout: "/subscriber"
+    layout: "/stakeholder"
   },
   {
     path: "/notifications",
     name: "Notifications",
     icon: "tim-icons icon-bell-55",
     component: Notifications,
-    layout: "/subscriber"
+    layout: "/stakeholder"
   },
   {
     path: "/user-profile",
     name: "User Profile",
     icon: "tim-icons icon-single-02",
     component: UserProfile,
-    layout: "/subscriber"
+    layout: "/stakeholder"
   },
   {
     path: "/tables",
     name: "Table List",
     icon: "tim-icons icon-puzzle-10",
     component: TableList,
-    layout: "/subscriber"
+    layout: "/stakeholder"
   },
     {
         path: "/typography",

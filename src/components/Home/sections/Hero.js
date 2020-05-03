@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import classNames from 'classnames';
 
-import ButtonGroup from '../elements/ButtonGroup';
-import Button from '../elements/Button';
 import Image from '../elements/Image';
 import Modal from '../elements/Modal';
 import {SectionProps} from "../../../utils/SectionProps";

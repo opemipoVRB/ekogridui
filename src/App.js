@@ -26,11 +26,10 @@ function App() {
   return (
     <Router history={hist}>
     <div className="App">
-      {/*<Header title={title}/>*/}
         {/*<div className="container d-flex align-items-center flex-column">*/}
           <Switch>
-              <Route path="/subscriber/dashboard" render={props => <SubscriberLayout {...props} />} />
-              <Route path="/stakeholder/dashboard" render={props => <StakeholderLayout {...props} />} />
+              <Route path="/subscriber" render={props => <SubscriberLayout {...props} />} />
+              <Route path="/stakeholder" render={props => <StakeholderLayout {...props} />} />
             <Route path="/" exact={true}>
               <HomePage/>
             </Route>
