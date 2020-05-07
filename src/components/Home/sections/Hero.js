@@ -7,11 +7,11 @@ import {SectionProps} from "../../../utils/SectionProps";
 
 const propTypes = {
   ...SectionProps.types
-}
+};
 
 const defaultProps = {
   ...SectionProps.defaults
-}
+};
 
 const Hero = ({
   className,

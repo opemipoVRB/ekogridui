@@ -1,10 +1,10 @@
 import StakeholderDashboard from "./views/stakeholder/Dashboard";
-import Icons from "./views/Icons";
-import Notifications from "./views/Notifications";
 import UserProfile from "./views/UserProfile";
-import TableList from "./views/TableList";
-import Typography from "./views/Typography";
 import Map from "./views/Map";
+import BillingManagement from "./views/stakeholder/BillingManagement";
+import DeviceManagement from "./views/stakeholder/DeviceManagement";
+import Messages from "./views/stakeholder/Messages";
+import ChatbotManagement from "./views/stakeholder/ChatbotManagement";
 
 
 var routes =[
@@ -15,28 +15,30 @@ var routes =[
     component: StakeholderDashboard,
     layout: "/stakeholder"
     },
+
     {
-    path: "/icons",
-    name: "Icons",
-    icon: "tim-icons icon-atom",
-    component: Icons,
+    path: "/billing-management",
+    name: "Billing Management",
+    icon: "tim-icons icon-coins",
+    component: BillingManagement,
+    layout: "/stakeholder"
+  },
+
+    {
+    path: "/device-management",
+    name: "Device Management",
+    icon: "tim-icons icon-wifi",
+    component: DeviceManagement,
     layout: "/stakeholder"
   },
   {
     path: "/map",
     name: "Map",
-    icon: "tim-icons icon-pin",
+    icon: "tim-icons icon-map-big",
     component: Map,
     layout: "/stakeholder"
   },
-  {
-    path: "/notifications",
-    name: "Notifications",
-    icon: "tim-icons icon-bell-55",
-    component: Notifications,
-    layout: "/stakeholder"
-  },
-  {
+    {
     path: "/user-profile",
     name: "User Profile",
     icon: "tim-icons icon-single-02",
@@ -44,21 +46,20 @@ var routes =[
     layout: "/stakeholder"
   },
   {
-    path: "/tables",
-    name: "Table List",
-    icon: "tim-icons icon-puzzle-10",
-    component: TableList,
+    path: "/messages",
+    name: "Messages",
+    icon: "tim-icons icon-email-85",
+    component: Messages,
     layout: "/stakeholder"
   },
     {
-        path: "/typography",
-        name: "Typography",
-        // icon: "tim-icons icon-align-center",
-        component: Typography,
+        path: "/chatbot-manager",
+        name: "Manage Chatbot",
+        icon: "tim-icons icon-components",
+        component: ChatbotManagement,
         layout: "/subscriber"
     }
 ];
-
 
 
 export default routes;

@@ -21,14 +21,14 @@ import { Route, Switch, Redirect } from "react-router-dom";
 import PerfectScrollbar from "perfect-scrollbar";
 
 // core components
-import SubscriberNavbar from "components/Navbars/SubscriberNavbar";
-import Footer from "components/Footer/Footer.js";
-import Sidebar from "components/Sidebar/Sidebar.js";
-import FixedPlugin from "components/FixedPlugin/FixedPlugin.js";
+import SubscriberNavbar from "../../components/Navbars/SubscriberNavbar";
+import FixedPlugin from "../../components/FixedPlugin/FixedPlugin";
+import Footer from "../../components/Footer/Footer";
+import Sidebar from "../../components/Sidebar/Sidebar";
 
-import routes from "subscriber_routes.js";
+import routes from "../../subscriber_routes";
 
-import logo from "assets/img/react-logo.png";
+import logo from "../../assets/img/react-logo.png";
 
 
 var ps;
@@ -42,6 +42,7 @@ class Subscriber extends React.Component {
         document.documentElement.className.indexOf("nav-open") !== -1
     };
   }
+
   componentDidMount() {
     if (navigator.platform.indexOf("Win") > -1) {
       document.documentElement.className += " perfect-scrollbar-on";
@@ -109,48 +110,55 @@ class Subscriber extends React.Component {
     return "Brand";
   };
   render() {
+
     return (
-      <>
-        <div className="wrapper">
-          <Sidebar
-            {...this.props}
-            routes={routes}
-            bgColor={this.state.backgroundColor}
-            logo={{
-              outterLink: "https://www.vectoriantechnologies.com/",
-              text: "EkoGrid",
-              imgSrc: logo
-            }}
-            toggleSidebar={this.toggleSidebar}
-          />
-          <div
-            className="main-panel"
-            ref="mainPanel"
-            data={this.state.backgroundColor}
-          >
-            <SubscriberNavbar
-              {...this.props}
-              brandText={this.getBrandText(this.props.location.pathname)}
-              toggleSidebar={this.toggleSidebar}
-              sidebarOpened={this.state.sidebarOpened}
-            />
-            <Switch>
-              {this.getRoutes(routes)}
-              <Redirect from="*" to="/subscriber/dashboard"/>
-            </Switch>
-            {// we don't want the Footer to be rendered on map page
-            this.props.location.pathname.indexOf("maps") !== -1 ? null : (
-              <Footer fluid />
-            )}
-          </div>
-        </div>
-        <FixedPlugin
-          bgColor={this.state.backgroundColor}
-          handleBgClick={this.handleBgClick}
-        />
-      </>
-    );
+
+            <>
+                <div className="wrapper">
+                    <Sidebar
+                        {...this.props}
+                        routes={routes}
+                        bgColor={this.state.backgroundColor}
+                        logo={{
+                            outterLink: "https://www.vectoriantechnologies.com/",
+                            text: "EkoGrid",
+                            imgSrc: logo
+                        }}
+                        toggleSidebar={this.toggleSidebar}
+                    />
+                    <div
+                        className="main-panel"
+                        ref="mainPanel"
+                        data={this.state.backgroundColor}
+                    >
+                        <SubscriberNavbar
+                            {...this.props}
+                            brandText={this.getBrandText(this.props.location.pathname)}
+                            toggleSidebar={this.toggleSidebar}
+                            sidebarOpened={this.state.sidebarOpened}
+
+                        />
+                        <Switch>
+                            {this.getRoutes(routes)}
+                            <Redirect from="*" to="/subscriber/dashboard"/>
+                        </Switch>
+                        {// we don't want the Footer to be rendered on map page
+                            this.props.location.pathname.indexOf("maps") !== -1 ? null : (
+                                <Footer fluid/>
+                            )}
+                    </div>
+                </div>
+                <FixedPlugin
+                    bgColor={this.state.backgroundColor}
+                    handleBgClick={this.handleBgClick}
+                />
+            </>
+        )
   }
 }
 
+
 export default Subscriber;
+
+
+

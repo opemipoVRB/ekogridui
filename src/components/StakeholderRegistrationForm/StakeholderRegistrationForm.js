@@ -4,6 +4,9 @@ import './StakeholderRegistrationForm.css';
 import {API_BASE_URL} from '../../constants/apiContants';
 import { withRouter } from "react-router-dom";
 
+
+
+
 function StakeholderRegistrationForm(props) {
     const [state , setState] = useState({
         "first_name": "",
@@ -17,7 +20,7 @@ function StakeholderRegistrationForm(props) {
         "successMessage":null
     })
     const handleChange = (e) => {
-        const {id , value} = e.target   
+        const {id , value} = e.target
         setState(prevState => ({
             ...prevState,
             [id] : value
@@ -45,7 +48,7 @@ function StakeholderRegistrationForm(props) {
                         }))
                         redirectToHome();
                         props.showError(null)
-                    } 
+                    }
                 })
                 .catch(function (error) {
                     if (error.response) {
@@ -64,26 +67,26 @@ function StakeholderRegistrationForm(props) {
                         // Something happened in setting up the request that triggered an Error
                         console.log('Error', error.message);
                       }
-                });    
+                });
         } else {
-            props.showError('Please enter valid username and password')    
+            props.showError('Please enter valid username and password')
         }
-        
-    }
+
+    };
     const redirectToHome = () => {
         props.history.push('/home');
-    }
+    };
     const redirectToLogin = () => {
-        props.history.push('/login'); 
-    }
+        props.history.push('/login');
+    };
     const handleSubmitClick = (e) => {
         e.preventDefault();
         if(state.password1 === state.password2){
-            sendDetailsToServer()    
+            sendDetailsToServer()
         } else {
             props.showError('Passwords do not match');
         }
-    }
+    };
     return(
         <div className="card col-12 col-lg-4 login-card mt-2 hv-center">
         <form>
@@ -181,9 +184,9 @@ function StakeholderRegistrationForm(props) {
             </div>
             <div className="mt-2">
                 <span>Already have an account? </span>
-                <span className="loginText" onClick={() => redirectToLogin()}>Login here</span> 
+                <span className="loginText" onClick={() => redirectToLogin()}>Login here</span>
             </div>
-            
+
         </div>
     )
 }

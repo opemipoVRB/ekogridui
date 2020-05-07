@@ -1,53 +1,71 @@
-import React, {useState} from 'react';
-import LoginForm from './components/LoginForm/LoginForm';
-import SubscriberRegistrationForm from './components/SubscriberRegistrationForm/SubscriberRegistrationForm';
-import StakeholderRegistrationForm from './components/StakeholderRegistrationForm/StakeholderRegistrationForm';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route
-} from "react-router-dom";
+import React, {useEffect, useState} from "react";
+import Login from "./components/Login/Login";
+import SubscriberRegistrationForm from "./components/SubscriberRegistrationForm/SubscriberRegistrationForm";
+import StakeholderRegistrationForm from "./components/StakeholderRegistrationForm/StakeholderRegistrationForm";
+import {Router, Switch, Route, Redirect,} from "react-router-dom";
 import SubscriberLayout from "layouts/Subscriber/Subscriber.js";
 import StakeholderLayout from "layouts/Stakeholder/Stakeholder";
-import AlertComponent from './components/AlertComponent/AlertComponent';
+import AlertComponent from "./components/AlertComponent/AlertComponent";
 import { createBrowserHistory } from "history";
 
 import "assets/scss/black-dashboard-react.scss";
 import "assets/demo/demo.css";
 import "assets/css/nucleo-icons.css";
 import HomePage from "./HomePage";
+import {authCheckState} from "./store/actions/auth";
+import Cookies from 'js-cookie';
+import {applyMiddleware as dispatch} from "redux";
+
 const hist = createBrowserHistory();
 
 
-
 function App() {
-  const [updateTitle] = useState(null);
   const [errorMessage, updateErrorMessage] = useState(null);
-  return (
-    <Router history={hist}>
-    <div className="App">
-        {/*<div className="container d-flex align-items-center flex-column">*/}
-          <Switch>
-              <Route path="/subscriber" render={props => <SubscriberLayout {...props} />} />
-              <Route path="/stakeholder" render={props => <StakeholderLayout {...props} />} />
-            <Route path="/" exact={true}>
-              <HomePage/>
-            </Route>
-            <Route path="/register/subscriber">
-              <SubscriberRegistrationForm showError={updateErrorMessage} updateTitle={updateTitle}/>
-            </Route>
-            <Route path="/register/stakeholder">
-                <StakeholderRegistrationForm showError={updateErrorMessage} updateTitle={updateTitle}/>
-            </Route>
-            <Route path="/login">
-              <LoginForm showError={updateErrorMessage} updateTitle={updateTitle}/>
-            </Route>
-          </Switch>
+  const token = Cookies.get('token');
+  const userType = Cookies.get('userType');
+  const isAuthenticated =(token !== null && token !== undefined);
+
+  // useEffect(()=>{
+  //     dispatch(authCheckState());
+  //
+  //
+  //   });
+
+
+        return (
+            <Router history={hist}>
+                <div className="App">
+                    <Switch>
+                        <Route  path="/subscriber" render={props =>  (isAuthenticated && userType ==="1") ? <SubscriberLayout {...props} />
+                        : <Redirect to="/login"/>
+                        }
+                        />
+                        <Route  path="/stakeholder" render={props =>    (isAuthenticated && userType ==="2") ? <StakeholderLayout {...props} />
+                        : <Redirect to="/login"/>
+                        }
+                        />
+                        <Route path="/" exact={true}>
+                            <HomePage/>
+                        </Route>
+                        <Route path="/register/subscriber">
+                          <SubscriberRegistrationForm showError={updateErrorMessage}/>
+                        </Route>
+                        <Route path="/register/stakeholder">
+                            <StakeholderRegistrationForm showError={updateErrorMessage} />
+                        </Route>
+                        <Route path="/login">
+                          <Login  showError={updateErrorMessage}/>
+                        </Route></Switch>
           <AlertComponent errorMessage={errorMessage} hideError={updateErrorMessage}/>
         </div>
-    {/*</div>*/}
     </Router>
   );
 }
 
+
 export default App;
+
+
+
+
+

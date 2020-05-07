@@ -36,6 +36,8 @@ import {
   Container,
   Modal
 } from "reactstrap";
+import {logout} from "../../store/actions/auth";
+
 
 class SubscriberNavbar extends React.Component {
   constructor(props) {
@@ -85,6 +87,11 @@ class SubscriberNavbar extends React.Component {
       modalSearch: !this.state.modalSearch
     });
   };
+  logout =()=>{
+      logout();
+      this.props.history.push('/');
+  };
+
   render() {
     return (
       <>
@@ -203,7 +210,9 @@ class SubscriberNavbar extends React.Component {
                     </NavLink>
                     <DropdownItem divider tag="li" />
                     <NavLink tag="li">
-                      <DropdownItem className="nav-item">Log out</DropdownItem>
+                      <DropdownItem className="nav-item" onClick={this.logout}>
+                          Log out
+                      </DropdownItem>
                     </NavLink>
                   </DropdownMenu>
                 </UncontrolledDropdown>
@@ -234,5 +243,8 @@ class SubscriberNavbar extends React.Component {
     );
   }
 }
+
+
+
 
 export default SubscriberNavbar;

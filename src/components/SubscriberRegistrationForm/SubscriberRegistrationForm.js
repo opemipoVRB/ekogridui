@@ -4,6 +4,8 @@ import './SubscriberRegistrationForm.css';
 import {API_BASE_URL} from '../../constants/apiContants';
 import { withRouter } from "react-router-dom";
 
+
+
 function SubscriberRegistrationForm(props) {
     const [state , setState] = useState({
         "first_name": "",
@@ -15,14 +17,14 @@ function SubscriberRegistrationForm(props) {
         "phone_number": "",
         "device": "",
         "successMessage":null
-    })
+    });
     const handleChange = (e) => {
-        const {id , value} = e.target   
+        const {id , value} = e.target
         setState(prevState => ({
             ...prevState,
             [id] : value
         }))
-    }
+    };
     const sendDetailsToServer = () => {
         if(state.email.length && state.password1.length) {
             props.showError(null);
@@ -42,10 +44,10 @@ function SubscriberRegistrationForm(props) {
                         setState(prevState => ({
                             ...prevState,
                             'successMessage' : 'Registration successful. Redirecting to home page..'
-                        }))
+                        }));
                         redirectToHome();
                         props.showError(null)
-                    } 
+                    }
                 })
                 .catch(function (error) {
                     if (error.response) {
@@ -64,28 +66,26 @@ function SubscriberRegistrationForm(props) {
                         // Something happened in setting up the request that triggered an Error
                         console.log('Error', error.message);
                       }
-                });    
+                });
         } else {
-            props.showError('Please enter valid username and password')    
+            props.showError('Please enter valid username and password')
         }
-        
-    }
+
+    };
     const redirectToHome = () => {
-        props.updateTitle('Home')
         props.history.push('/home');
-    }
+    };
     const redirectToLogin = () => {
-        props.updateTitle('Login')
-        props.history.push('/login'); 
-    }
+        props.history.push('/login');
+    };
     const handleSubmitClick = (e) => {
         e.preventDefault();
         if(state.password1 === state.password2){
-            sendDetailsToServer()    
+            sendDetailsToServer()
         } else {
             props.showError('Passwords do not match');
         }
-    }
+    };
     return(
         <div className="card col-12 col-lg-4 login-card mt-2 hv-center">
         <form>
@@ -134,12 +134,12 @@ function SubscriberRegistrationForm(props) {
         </div>
         <div className="form-group text-left">
                     <label htmlFor="exampleInputPassword1">Confirm Password</label>
-                    <input type="password" 
-                        className="form-control" 
-                        id="password2" 
+                    <input type="password"
+                        className="form-control"
+                        id="password2"
                         placeholder="Confirm Password"
                         value={state.password2}
-                        onChange={handleChange} 
+                        onChange={handleChange}
                     />
         </div>
         <div className="form-group text-left">
@@ -183,9 +183,9 @@ function SubscriberRegistrationForm(props) {
             </div>
             <div className="mt-2">
                 <span>Already have an account? </span>
-                <span className="loginText" onClick={() => redirectToLogin()}>Login here</span> 
+                <span className="loginText" onClick={() => redirectToLogin()}>Login here</span>
             </div>
-            
+
         </div>
     )
 }

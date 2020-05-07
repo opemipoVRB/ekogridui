@@ -21,14 +21,12 @@ import { Route, Switch, Redirect } from "react-router-dom";
 import PerfectScrollbar from "perfect-scrollbar";
 
 // core components
-import StakeholderNavbar from "components/Navbars/StakeholderNavbar.js";
-import Footer from "components/Footer/Footer.js";
-import Sidebar from "components/Sidebar/Sidebar.js";
-import FixedPlugin from "components/FixedPlugin/FixedPlugin.js";
-
-import routes from "stakeholder_routes.js";
-
-import logo from "assets/img/react-logo.png";
+import FixedPlugin from "../../components/FixedPlugin/FixedPlugin";
+import Footer from "../../components/Footer/Footer";
+import routes from "../../stakeholder_routes";
+import StakeholderNavbar from "../../components/Navbars/StakeholderNavbar";
+import Sidebar from "../../components/Sidebar/Sidebar";
+import logo from "../../assets/img/react-logo.png";
 
 var ps;
 
@@ -151,5 +149,6 @@ class Stakeholder extends React.Component {
     );
   }
 }
+
 
 export default Stakeholder;
