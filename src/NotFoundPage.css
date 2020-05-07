@@ -1,0 +1,7 @@
+.container img { display: none; }
+
+.container.currently-loading img {
+    display: block;
+    width: 200%;
+    height: 200%;
+}

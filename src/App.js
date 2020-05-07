@@ -15,6 +15,7 @@ import HomePage from "./HomePage";
 import {authCheckState} from "./store/actions/auth";
 import Cookies from 'js-cookie';
 import {applyMiddleware as dispatch} from "redux";
+import NotFoundPage from "./NotFoundPage";
 
 const hist = createBrowserHistory();
 
@@ -55,7 +56,9 @@ function App() {
                         </Route>
                         <Route path="/login">
                           <Login  showError={updateErrorMessage}/>
-                        </Route></Switch>
+                        </Route>
+                         <Route path="*" component={NotFoundPage} />
+                    </Switch>
           <AlertComponent errorMessage={errorMessage} hideError={updateErrorMessage}/>
         </div>
     </Router>
