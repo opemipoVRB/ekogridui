@@ -22,4 +22,6 @@ class NotFoundPage extends React.Component{
             )
 
     }
-}export default NotFoundPage;
+}
+
+export default NotFoundPage;

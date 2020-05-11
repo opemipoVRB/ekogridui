@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {useState} from "react";
 import Login from "./components/Login/Login";
 import SubscriberRegistrationForm from "./components/SubscriberRegistrationForm/SubscriberRegistrationForm";
 import StakeholderRegistrationForm from "./components/StakeholderRegistrationForm/StakeholderRegistrationForm";
@@ -10,11 +10,10 @@ import { createBrowserHistory } from "history";
 
 import "assets/scss/black-dashboard-react.scss";
 import "assets/demo/demo.css";
+
 import "assets/css/nucleo-icons.css";
 import HomePage from "./HomePage";
-import {authCheckState} from "./store/actions/auth";
 import Cookies from 'js-cookie';
-import {applyMiddleware as dispatch} from "redux";
 import NotFoundPage from "./NotFoundPage";
 
 const hist = createBrowserHistory();

@@ -46,6 +46,13 @@ export const checkAuthTimeout = expirationTime =>{
 };
 
 
+export const redirectToSubscriberDashboard = (props) => {
+        props.history.push('/subscriber/dashboard');
+    };
+
+export const redirectToStakeholderDashboard = (props) => {
+        props.history.push('/stakeholder/dashboard');
+  };
 
 
 
@@ -73,6 +80,12 @@ export const authLogin = (email, password, props) => {
                         Cookies.set('token', token);
                         Cookies.set('expirationDate', expirationDate);
                         Cookies.set('userType', userType );
+                        if (userType === 1) {
+                            dispatch(redirectToSubscriberDashboard(props));
+                        }
+                        else if (userType === 2) {
+                            dispatch(redirectToStakeholderDashboard(props));
+                        }
                         dispatch(authSuccess(token));
                         dispatch(checkAuthTimeout(3600));
                 }

@@ -14,7 +14,7 @@ function Login(props) {
         successMessage: null
     });
     const handleChange = (e) => {
-        const { id, value } = e.target
+        const { id, value } = e.target;
         setState(prevState => ({
             ...prevState,
             [id]: value
@@ -24,24 +24,11 @@ function Login(props) {
     const handleSubmitClick = (e) => {
         e.preventDefault();
         props.onAuth(state.email,state.password, props);
-        let userType = Cookies.get('userType');
-        if (userType === "1") {
-            redirectToSubscriberDashboard();
-        }
-        else if (userType === "2") {
-            redirectToStakeholderDashboard();
 
-        }
+
 
     };
 
-   const redirectToSubscriberDashboard = () => {
-       console.log("Trouble...");
-        props.history.push('/subscriber/dashboard');
-    };
-      const redirectToStakeholderDashboard = () => {
-        props.history.push('/stakeholder/dashboard');
-  };
 
     const redirectToStakeholderRegister = () => {
         props.history.push('/register/stakeholder');
