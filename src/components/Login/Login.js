@@ -1,9 +1,7 @@
 import React, {useState} from 'react';
-import './Login.css';
 import { withRouter } from "react-router-dom";
 import {connect} from 'react-redux';
 import {authLogin} from "../../store/actions/auth";
-import Cookies from 'js-cookie'
 
 
 

@@ -76,10 +76,12 @@ export const authLogin = (email, password, props) => {
                         props.showError(null);
                         const token = response.data.key;
                         const expirationDate = new Date(new Date().getTime() + 3600);
-                        const userType = response.data.user_type
+                        const userType = response.data.user_type;
+                        const userID = response.data.user_id;
                         Cookies.set('token', token);
                         Cookies.set('expirationDate', expirationDate);
                         Cookies.set('userType', userType );
+                        Cookies.set("userID", userID);
                         if (userType === 1) {
                             dispatch(redirectToSubscriberDashboard(props));
                         }
