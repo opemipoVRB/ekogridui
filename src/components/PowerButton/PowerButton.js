@@ -3,19 +3,24 @@ import "assets/css/powerbutton/powerbutton.css";
 import {API_BASE_URL} from "../../constants/apiContants";
 import axios from "axios";
 import Cookies from "js-cookie";
+import {Alert} from "reactstrap";
 
 
 class PowerButton extends Component {
     constructor(props) {
     super(props);
      this.state = {
-        user: Cookies.get("userID")
+        user: Cookies.get("userID"),
+           visible: false
     };
+     this.onDismiss = this.onDismiss.bind(this);
      this.PowerButton = this.PowerButton.bind(this)
      this.powerOn = this.powerOn.bind(this)
    }
 
-
+   onDismiss(){
+    this.setState({visible: !this.state.visible})
+    }
     powerOn  = () =>  {
 
         const user_id = this.state.user;
@@ -57,21 +62,35 @@ class PowerButton extends Component {
 
 
      PowerButton  = (e) =>  {
-        e.preventDefault();
-        let element = e.target;
-        element.classList.toggle("on");
-        this.powerOn()
+         if (this.props.state !=="disabled") {
+             e.preventDefault();
+             let element = e.target;
+             element.classList.toggle("on");
+             this.powerOn()
+
+         }
+         else{
+             this.setState({visible: !this.state.visible})
+         }
+
     };
 
 
   render() {
          console.log("Really ", this.props.state);
     return (
-        <section id="power-section">
-            {/*<span  id="power-button" onClick={this.PowerButton}  className={this.state._state}> &#xF011;</span>*/}
-            <span  id="power-button" onClick={this.PowerButton}  className={this.props.state}> &#xF011;</span>
+        <div className="content">
+             <section id="power-section">
+                 {/*<span  id="power-button" onClick={this.PowerButton}  className={this.state._state}> &#xF011;</span>*/}
+                 <span  id="power-button" onClick={this.PowerButton}  className={this.props.state}> &#xF011;</span>
             <span></span>
-        </section>
+             </section>
+
+            <Alert color="warning" isOpen={this.state.visible} toggle={this.onDismiss}>
+                <span>Your device has been disabled contact your disco.</span>
+            </Alert>
+      </div>
+
     )
 
   }

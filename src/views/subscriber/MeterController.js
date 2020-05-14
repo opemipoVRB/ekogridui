@@ -3,16 +3,22 @@ import PowerButton from "../../components/PowerButton/PowerButton";
 import Cookies from "js-cookie";
 import axios from "axios";
 import {API_BASE_URL} from "../../constants/apiContants";
-
+import { Alert } from 'reactstrap';
 
 class MeterController extends React.Component {
     constructor(props) {
     super(props);
     this.state = {
         _state: null,
-        user: Cookies.get("userID")
+        user: Cookies.get("userID"),
+         visible: false
     };
+     this.onDismiss = this.onDismiss.bind(this);
    }
+
+   onDismiss(){
+    this.setState({visible: !this.state.visible})
+    }
     componentDidMount (){
 
        console.log("Happy");
@@ -39,9 +45,12 @@ class MeterController extends React.Component {
                      }
                      else if(response.data.state === 2){
                          this.setState({_state: 'off' });
+                         // props.showError("Your device has been disabled contact your disco");
                       }
                      else if(response.data.state === 3){
-                         this.setState({_state: 'disabled' })
+                         this.setState({_state: 'disabled' });
+                         this.setState({visible: !this.state.visible})
+
                      }
                 }
             })
@@ -57,6 +66,9 @@ class MeterController extends React.Component {
             <>
                 <div className="content">
                     <PowerButton state={this.state._state}/>
+                    <Alert color="warning" isOpen={this.state.visible} toggle={this.onDismiss}>
+                        <span>Your device has been disabled contact your disco.</span>
+                    </Alert>
                 </div>
             </>
 
