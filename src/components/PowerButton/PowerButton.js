@@ -62,15 +62,19 @@ class PowerButton extends Component {
 
 
      PowerButton  = (e) =>  {
+         e.preventDefault();
+         let element = e.target;
          if (this.props.state !=="disabled") {
-             e.preventDefault();
-             let element = e.target;
              element.classList.toggle("on");
              this.powerOn()
 
          }
          else{
-             this.setState({visible: !this.state.visible})
+             element.className= "off";
+             var powerButton= document.getElementById("power-pad")
+             powerButton.disabled=true;
+
+
          }
 
     };
@@ -81,9 +85,11 @@ class PowerButton extends Component {
     return (
         <div className="content">
              <section id="power-section">
-                 {/*<span  id="power-button" onClick={this.PowerButton}  className={this.state._state}> &#xF011;</span>*/}
-                 <span  id="power-button" onClick={this.PowerButton}  className={this.props.state}> &#xF011;</span>
-            <span></span>
+                 <fieldset id="power-pad">
+                     <span  id="power-button" onClick={this.PowerButton}  className={this.props.state}> &#xF011;</span>
+                     <span></span>
+                 </fieldset>
+
              </section>
 
             <Alert color="warning" isOpen={this.state.visible} toggle={this.onDismiss}>
