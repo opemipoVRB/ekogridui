@@ -20,9 +20,6 @@ class MeterController extends React.Component {
     this.setState({visible: !this.state.visible})
     }
     componentDidMount (){
-
-       console.log("Happy");
-       console.log(this.state._state);
        const user_id = this.state.user;
        const token = Cookies.get('token');
        axios(

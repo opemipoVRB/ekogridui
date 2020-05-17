@@ -44,11 +44,12 @@ import {
 
 // core components
 import {
-  powerConsumption,
-  chartExample2,
-  chartExample3,
-  chartExample4
+    chartExample3,
+    chartExample4
 } from "components/DataSet/DataSet.js";
+import Cookies from "js-cookie";
+import axios from "axios";
+import {API_BASE_URL} from "../../constants/apiContants";
 
 
 
@@ -56,15 +57,192 @@ class SubscriberDashboard extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      bigChartData: "data1"
+        bigChartData: "data1",
+        labels: [],
+        data: [],
+        pLabels: [],
+        pData: [],
+        totalPower: null,
     };
   }
+  componentDidMount(){
+        this.getChartData();
+  }
+
+
+
+  getFormatDate = (date) => {
+      const months = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
+    return (
+        months[date.getMonth()]
+    );
+  };
+
+
+  getChartData(){
+      const token = Cookies.get('token');
+      axios(
+          {
+              headers: {
+                  Authorization: `Token ${token}`,
+                  'Content-Type': 'application/json',
+                  'Accept' : 'application/json',
+              },
+               method: 'get',
+               url: API_BASE_URL +'gridtracker/monitoring/telemetry',
+               withCredentials: true
+            })
+          .then((response) => {
+                 if (response.status === 200) {
+                     const data = response.data.results;
+                     const labels =[];
+                     const dataArray=[];
+                     data.forEach(packet=>{
+                         labels.push(this.getFormatDate(new Date(packet["published_date"])));
+                         dataArray.push(parseFloat(packet["power_consumption"]));
+                     });
+                     var totalPower = Math.round(dataArray.reduce(function(a, b){
+                         return a + b }, 0));
+                     var last =  function(array, n) {
+                         if (array == null)
+                             return void 0;
+                         if (n == null)
+                             return array[array.length - 1];
+                         return array.slice(Math.max(array.length - n, 0));
+                     };
+
+                     this.setState({ data:dataArray, labels:labels, totalPower:totalPower, pData:last(dataArray, 6), pLabels:last(labels, 6)})
+                 }
+             })
+          .catch((error) => {
+                if (error.response) {
+                    console.log('Error', error.message);
+                }
+            });
+    }
   setBgChartData = name => {
     this.setState({
       bigChartData: name
     });
+
   };
   render() {
+      let chart1_2_options = {
+          maintainAspectRatio: false,
+          legend: {
+              display: false
+          },
+          tooltips: {
+              backgroundColor: "#f5f5f5",
+              titleFontColor: "#333",
+              bodyFontColor: "#666",
+              bodySpacing: 4,
+              xPadding: 12,
+              mode: "nearest",
+              intersect: 0,
+              position: "nearest"
+          },
+          responsive: true,
+          scales: {
+              yAxes: [
+                  {
+                      barPercentage: 1.6,
+                      gridLines: {
+                          drawBorder: false,
+                          color: "rgba(29,140,248,0.0)",
+                          zeroLineColor: "transparent"
+                      },
+                      ticks: {
+                          padding: 20,
+                          fontColor: "#9a9a9a"
+                      }
+                  }
+                  ],
+              xAxes: [
+                  {
+                      barPercentage: 1.6,
+                      gridLines: {
+                          drawBorder: false,
+                          color: "rgba(29,140,248,0.1)",
+                          zeroLineColor: "transparent"
+                      },
+                      ticks: {
+                          padding: 20,
+                          fontColor: "#9a9a9a"
+                      }
+                  }
+                  ]
+          }
+      };
+      let powerConsumption = {
+          data1: canvas => {
+              let ctx = canvas.getContext("2d");
+              let gradientStroke = ctx.createLinearGradient(0, 230, 0, 50);
+              gradientStroke.addColorStop(1, "rgba(29,140,248,0.2)");
+              gradientStroke.addColorStop(0.4, "rgba(29,140,248,0.0)");
+              gradientStroke.addColorStop(0, "rgba(29,140,248,0)"); //blue colors
+
+    return {
+        labels: this.state.labels,
+        datasets: [
+            {
+                label: "Power Consumed in Kwh",
+                fill: true,
+                backgroundColor: gradientStroke,
+                borderColor: "#1f8ef1",
+                borderWidth: 2,
+                borderDash: [],
+                borderDashOffset: 0.0,
+                pointBackgroundColor: "#1f8ef1",
+                pointBorderColor: "rgba(255,255,255,0)",
+                pointHoverBackgroundColor: "#1f8ef1",
+                pointBorderWidth: 20,
+                pointHoverRadius: 4,
+                pointHoverBorderWidth: 15,
+                pointRadius: 4,
+                data: this.state.data,
+            }
+            ]
+    };
+          },
+          options: chart1_2_options
+      };
+
+
+      let chartExample2 = {
+          data: canvas => {
+              let ctx = canvas.getContext("2d");
+
+              let gradientStroke = ctx.createLinearGradient(0, 230, 0, 50);
+              gradientStroke.addColorStop(1, "rgba(29,140,248,0.2)");
+              gradientStroke.addColorStop(0.4, "rgba(29,140,248,0.0)");
+              gradientStroke.addColorStop(0, "rgba(29,140,248,0)"); //blue colors
+
+    return {
+        labels: this.state.pLabels,
+        datasets: [
+            {
+                label: "Data",
+                fill: true,
+                backgroundColor: gradientStroke,
+                borderColor: "#1f8ef1",
+                borderWidth: 2,
+                borderDash: [],
+                borderDashOffset: 0.0,
+                pointBackgroundColor: "#1f8ef1",
+                pointBorderColor: "rgba(255,255,255,0)",
+                pointHoverBackgroundColor: "#1f8ef1",
+                pointBorderWidth: 20,
+                pointHoverRadius: 4,
+                pointHoverBorderWidth: 15,
+                pointRadius: 4,
+                data: this.state.pData
+        }
+      ]
+    };
+  },
+  options: chart1_2_options
+};
     return (
       <>
         <div className="content">
@@ -73,89 +251,10 @@ class SubscriberDashboard extends React.Component {
               <Card className="card-chart">
                 <CardHeader>
                   <Row>
-
-                    
                     <Col className="text-left" sm="6">
                     <h5 className="card-category">Power Consumption</h5>
                       <CardTitle tag="h2">Energy Levels</CardTitle>
                     </Col>
-                    <Col sm="6">
-                      <ButtonGroup
-                        className="btn-group-toggle float-right"
-                        data-toggle="buttons"
-                      >
-                        <Button
-                          tag="label"
-                          className={classNames("btn-simple", {
-                            active: this.state.bigChartData === "data1"
-                          })}
-                          color="info"
-                          id="0"
-                          size="sm"
-                          onClick={() => this.setBgChartData("data1")}
-                        >
-                          <input
-                            defaultChecked
-                            className="d-none"
-                            name="options"
-                            type="radio"
-                          />
-                          <span className="d-none d-sm-block d-md-block d-lg-block d-xl-block">
-                            Yesterday
-                          </span>
-                          <span className="d-block d-sm-none">
-                            <i className="tim-icons icon-single-02" />
-                          </span>
-                        </Button>
-                        <Button
-                          color="info"
-                          id="1"
-                          size="sm"
-                          tag="label"
-                          className={classNames("btn-simple", {
-                            active: this.state.bigChartData === "data2"
-                          })}
-                          onClick={() => this.setBgChartData("data2")}
-                        >
-                          <input
-                            className="d-none"
-                            name="options"
-                            type="radio"
-                          />
-                          <span className="d-none d-sm-block d-md-block d-lg-block d-xl-block">
-                            Today
-                          </span>
-                          <span className="d-block d-sm-none">
-                            <i className="tim-icons icon-gift-2" />
-                          </span>
-                        </Button>
-                        <Button
-                          color="info"
-                          id="2"
-                          size="sm"
-                          tag="label"
-                          className={classNames("btn-simple", {
-                            active: this.state.bigChartData === "data3"
-                          })}
-                          onClick={() => this.setBgChartData("data3")}
-                        >
-                          <input
-                            className="d-none"
-                            name="options"
-                            type="radio"
-                          />
-                          <span className="d-none d-sm-block d-md-block d-lg-block d-xl-block">
-                            Prediction
-                          </span>
-                          <span className="d-block d-sm-none">
-                            <i className="tim-icons icon-tap-02" />
-                          </span>
-                        </Button>
-                      </ButtonGroup>
-                    </Col>
-
-
-
                   </Row>
                 </CardHeader>
                 <CardBody>
@@ -168,6 +267,8 @@ class SubscriberDashboard extends React.Component {
                 </CardBody>
               </Card>
             </Col>
+
+
           </Row>
           <Row>
             <Col lg="4">
@@ -175,8 +276,8 @@ class SubscriberDashboard extends React.Component {
                 <CardHeader>
                   <h5 className="card-category">Power Consumption</h5>
                   <CardTitle tag="h3">
-                    <i className="tim-icons icon-bell-55 text-info" />{" "}
-                    3,215 Kwh
+                    <i className="tim-icons icon-bulb-63 text-info" />{" "}
+                      {this.state.totalPower} Kwh
                   </CardTitle>
                 </CardHeader>
                 <CardBody>
@@ -534,7 +635,7 @@ class SubscriberDashboard extends React.Component {
                         <td>May</td>
                         <td>2,650 Kwh</td>
                         <td className="text-center">$37,838</td>
-                      </tr> 
+                      </tr>
                       <tr>
                         <td>June</td>
                         <td>2,350 Kwh</td>
