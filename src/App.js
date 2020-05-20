@@ -15,6 +15,7 @@ import "assets/css/nucleo-icons.css";
 import HomePage from "./HomePage";
 import Cookies from 'js-cookie';
 import NotFoundPage from "./NotFoundPage";
+import ConfirmEmail from "./components/AccountManagement/ConfirmEmail";
 
 const hist = createBrowserHistory();
 
@@ -56,7 +57,8 @@ function App() {
                         <Route path="/login">
                           <Login  showError={updateErrorMessage}/>
                         </Route>
-                         <Route path="*" component={NotFoundPage} />
+                        <Route path="/verify-email/:key" component={ConfirmEmail}/>
+                        <Route path="*" component={NotFoundPage} />
                     </Switch>
           <AlertComponent errorMessage={errorMessage} hideError={updateErrorMessage}/>
         </div>
