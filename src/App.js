@@ -16,6 +16,7 @@ import HomePage from "./HomePage";
 import Cookies from 'js-cookie';
 import NotFoundPage from "./NotFoundPage";
 import ConfirmEmail from "./components/AccountManagement/ConfirmEmail";
+import PaymentStatus from "./components/Payment/PaymentStatus";
 
 const hist = createBrowserHistory();
 
@@ -58,6 +59,8 @@ function App() {
                           <Login  showError={updateErrorMessage}/>
                         </Route>
                         <Route path="/verify-email/:key" component={ConfirmEmail}/>
+                        {/*<Route path="/payment-status" render={(props) => <PaymentStatus {...props}/>}/>*/}
+                        <Route path="/payment-status" component={PaymentStatus}/>
                         <Route path="*" component={NotFoundPage} />
                     </Switch>
           <AlertComponent errorMessage={errorMessage} hideError={updateErrorMessage}/>

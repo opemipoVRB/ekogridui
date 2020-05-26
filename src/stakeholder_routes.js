@@ -57,7 +57,7 @@ var routes =[
         name: "Manage Chatbot",
         icon: "tim-icons icon-components",
         component: ChatbotManagement,
-        layout: "/subscriber"
+        layout: "/stakeholder"
     }
 ];
 

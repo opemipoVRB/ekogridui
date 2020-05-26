@@ -42,7 +42,6 @@ class MeterController extends React.Component {
                      }
                      else if(response.data.state === 2){
                          this.setState({_state: 'off' });
-                         // props.showError("Your device has been disabled contact your disco");
                       }
                      else if(response.data.state === 3){
                          this.setState({_state: 'disabled' });

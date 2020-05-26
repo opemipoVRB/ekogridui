@@ -3,6 +3,8 @@ import axios from "axios";
 import {API_BASE_URL} from "../../constants/apiContants";
 import Cookies from 'js-cookie';
 
+import {createBrowserHistory} from "history";
+const history = createBrowserHistory({forceRefresh:true});
 
 export const authStart = ()=>{
     return{
@@ -46,12 +48,12 @@ export const checkAuthTimeout = expirationTime =>{
 };
 
 
-export const redirectToSubscriberDashboard = (props) => {
-        props.history.push('/subscriber/dashboard');
+export const redirectToSubscriberDashboard = () => {
+        history.push('/subscriber/dashboard');
     };
 
-export const redirectToStakeholderDashboard = (props) => {
-        props.history.push('/stakeholder/dashboard');
+export const redirectToStakeholderDashboard = () => {
+        history.push('/stakeholder/dashboard');
   };
 
 
@@ -82,11 +84,12 @@ export const authLogin = (email, password, props) => {
                         Cookies.set('expirationDate', expirationDate);
                         Cookies.set('userType', userType );
                         Cookies.set("userID", userID);
+                        Cookies.set("email", email);
                         if (userType === 1) {
-                            dispatch(redirectToSubscriberDashboard(props));
+                            dispatch(redirectToSubscriberDashboard());
                         }
                         else if (userType === 2) {
-                            dispatch(redirectToStakeholderDashboard(props));
+                            dispatch(redirectToStakeholderDashboard());
                         }
                         dispatch(authSuccess(token));
                         dispatch(checkAuthTimeout(3600));

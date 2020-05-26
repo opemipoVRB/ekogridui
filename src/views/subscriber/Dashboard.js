@@ -595,61 +595,6 @@ class SubscriberDashboard extends React.Component {
                 </CardBody>
               </Card>
             </Col>
-            <Col lg="6" md="12">
-              <Card>
-                <CardHeader>
-                  <CardTitle tag="h4">Past Payments</CardTitle>
-                </CardHeader>
-                <CardBody>
-                  <Table className="tablesorter" responsive>
-                    <thead className="text-primary">
-                      <tr>
-                        <th>Month</th>
-                        <th>Power Usage</th>
-                        <th className="text-center">Salary</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>Janurary</td>
-                        <td>2,550 Kwh</td>
-                        <td className="text-center">$36,738</td>
-                      </tr>
-                      <tr>
-                        <td>Feburary</td>
-                        <td>2,550 Kwh</td>
-                        <td className="text-center">$36,738</td>
-                      </tr>
-                      <tr>
-                        <td>March</td>
-                        <td>2,550 Kwh</td>
-                        <td className="text-center">$36,738</td>
-                      </tr>
-                      <tr>
-                        <td>April</td>
-                        <td>2,550 Kwh</td>
-                        <td className="text-center">$36,738</td>
-                      </tr>
-                      <tr>
-                        <td>May</td>
-                        <td>2,650 Kwh</td>
-                        <td className="text-center">$37,838</td>
-                      </tr>
-                      <tr>
-                        <td>June</td>
-                        <td>2,350 Kwh</td>
-                        <td className="text-center">$35,738</td>
-                      </tr>
-                      <tr>
-                        <td>July</td>
-                        <td>2,450 Kwh</td>
-                        <td className="text-center">$36,998</td>
-                      </tr>
-                    </tbody>
-                  </Table>
-                </CardBody>
-              </Card>
-            </Col>
           </Row>
         </div>
       </>
