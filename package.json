@@ -27,6 +27,7 @@
     "react-ga": "^2.7.0",
     "react-google-maps": "9.4.5",
     "react-notification-alert": "0.0.12",
+    "react-paginate": "^6.3.2",
     "react-paystack": "^2.0.2",
     "react-redux": "^7.2.0",
     "react-router-dom": "5.1.2",
@@ -56,11 +57,11 @@
     "not ie <= 11",
     "not op_mini all"
   ],
-   "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ],
+  "development": [
+    "last 1 chrome version",
+    "last 1 firefox version",
+    "last 1 safari version"
+  ],
   "optionalDependencies": {
     "@types/googlemaps": "3.39.3",
     "@types/markerclustererplus": "2.1.33",

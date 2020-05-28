@@ -1,14 +1,13 @@
 import React from "react";
 import Payment from "../../components/Payment/Payment";
-import { Card, CardBody, CardHeader, CardTitle, Col, FormGroup, Input, Label, Row, Table } from "reactstrap";
+import { Card, CardBody, CardHeader, CardTitle, Col, FormGroup, Input, Label, Row} from "reactstrap";
 import { Doughnut } from "react-chartjs-2";
 import Cookies from "js-cookie";
 import axios from "axios";
 import {API_BASE_URL} from "../../constants/apiContants";
+import PastPayment from "../../components/Payment/PastPayment";
 
-// function getRandomInt(min, max) {
-//   return Math.floor(Math.random() * (max - min + 1)) + min;
-// }
+
 
 
 class Bills extends React.Component {
@@ -18,9 +17,11 @@ constructor(props) {
     this.state = {
         user: Cookies.get("userID"),
         unit: 0.0,
-        rate: 0.5,
+        rate: null,
         price: 0.0,
         unitBalance:0.0,
+        paymentData: {},
+        stakeholder: "",
         email: Cookies.get('email'),
         token:Cookies.get('token'),
         data: {
@@ -69,11 +70,8 @@ constructor(props) {
         })
         .then((response) => {
             if (response.status === 200) {
-                console.log("Transact ", response.data)
-                let unitBalance = response.data.new_subscription - response.data.device.unit_balance
-                // ## TODO : Opinion that new subscription + meter balance  would give new balance.
-                this.setState({unitBalance:unitBalance});
-                console.log("Current Balance", unitBalance)
+                let stakeholder = response.data.device.stakeholder;
+                this.setState({stakeholder:stakeholder});
                 }
 
         })
@@ -84,6 +82,7 @@ constructor(props) {
         });
 
  };
+
 
  getRate=()=> {
     const user_id = this.state.user;
@@ -113,9 +112,10 @@ constructor(props) {
                     });
 
                 }
-                let last_unit_purchased = this.state.unitBalance; // get Balance
                 let data = this.state.data;
-                data.datasets[0].data = [response.data.device.unit_balance, last_unit_purchased - response.data.device.unit_balance];
+                let unitBalance = response.data.new_balance - response.data.device.unit_balance;
+                this.setState({unitBalance:unitBalance});
+                data.datasets[0].data = [unitBalance,  response.data.device.unit_balance];
                 this.setState(({data: data}));
             }
         })
@@ -125,6 +125,7 @@ constructor(props) {
             }
         });
 };
+
 
 
 
@@ -159,7 +160,11 @@ constructor(props) {
 };
 
 
+
+
+
   render() {
+
     return (
       <>
         <div className="content">
@@ -220,7 +225,7 @@ constructor(props) {
                           />
                           <span className="form-check-sign"><span className="check" />
                           </span>
-                        <Payment  email={this.state.email} amount={this.state.price} unit ={this.state.unit} />
+                        <Payment  email={this.state.email} amount={this.state.price} unit ={this.state.unit} stakeholder={ this.state.stakeholder}/>
                       </FormGroup>
                     </Col>
                   </div>
@@ -235,26 +240,7 @@ constructor(props) {
                   <CardTitle tag="h4">Past Payments</CardTitle>
                 </CardHeader>
                 <CardBody>
-                  <Table className="tablesorter" responsive>
-                    <thead className="text-primary">
-                      <tr>
-                        <th>Transaction date</th>
-                        <th>Description</th>
-                        <th>Reference</th>
-                        <th>Payment</th>
-                        <th className="text-center">Balance</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>2019-01-30</td>
-                        <td>Customer Payment</td>
-                        <td>PAYSTACK_189034797429</td>
-                        <td>₦36,738</td>
-                        <td className="text-center">₦36,738</td>
-                      </tr>
-                    </tbody>
-                  </Table>
+                <PastPayment/>
                 </CardBody>
               </Card>
             </Col>
