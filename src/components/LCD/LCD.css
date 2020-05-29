@@ -1,0 +1,25 @@
+
+/*LCD */
+
+
+#lcd {
+    font-weight: bold;
+    text-align: center;
+     background-color: transparent;
+    text-shadow: 0.3ex 0.3ex 0.2ex #2e466e, -0.3ex 0.3ex 0.2ex #c5b9b9, 0.3ex -0.3ex 0.2ex #c5b9b9, -0.3ex -0.3ex 0.2ex #415989, 0.7ex 0.7ex 1.9ex #415989, 0.7ex 0.7ex 1.9ex #415989, 0.7ex 0.7ex 1.9ex #415989;
+    margin: 0px;
+}
+input {
+    font-family: inherit;
+    background-color: darkblue;
+    color: blue;
+    font-weight: inherit;
+    font-size: inherit;
+    border: 2px solid #000;
+}
+input:focus {
+    border: 2px dotted #0F0;
+}
+
+#myform {
+}
