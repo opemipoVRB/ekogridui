@@ -164,6 +164,7 @@ constructor(props) {
 
 
   render() {
+      console.log("Price ", this.state.price);
 
     return (
       <>
@@ -175,7 +176,6 @@ constructor(props) {
                   <h5 className="card-category">Current Power Usage</h5>
                   <CardTitle tag="h3">
                     <i className="tim-icons icon-user-run text-primary" />{" "}
-                    {/*₦2,500*/}
                       {this.state.unitBalance} Kwh
                   </CardTitle>
                 </CardHeader>

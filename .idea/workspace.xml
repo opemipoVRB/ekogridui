@@ -5,12 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d908807e-de6b-4b25-9b47-f24b970a2aee" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/LCD/LCD.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/LCD/LCD.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/MeterAlert/MeterAlert.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/MeterAlert/MeterAlert.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/subscriber/Alerts.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/subscriber/Alerts.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/subscriber/Bills.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/subscriber/Bills.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -20,11 +15,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/views/subscriber/Bills.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="468">
-              <caret line="229" column="26" lean-forward="true" selection-start-line="229" selection-start-column="26" selection-end-line="229" selection-end-column="26" />
+            <state relative-caret-position="18">
+              <caret line="166" column="25" selection-start-line="166" selection-start-column="25" selection-end-line="166" selection-end-column="25" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -44,11 +39,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/MeterAlert/MeterAlert.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="70" column="30" lean-forward="true" selection-start-line="70" selection-start-column="30" selection-end-line="70" selection-end-column="37" />
+            <state relative-caret-position="36">
+              <caret line="52" column="326" selection-start-line="52" selection-start-column="326" selection-end-line="52" selection-end-column="326" />
             </state>
           </provider>
         </entry>
@@ -225,12 +220,12 @@
         <option value="$PROJECT_DIR$/src/components/Payment/Payment.js" />
         <option value="$PROJECT_DIR$/src/components/Payment/Pagination.css" />
         <option value="$PROJECT_DIR$/src/components/Payment/PastPayment.js" />
-        <option value="$PROJECT_DIR$/src/views/subscriber/Bills.js" />
         <option value="$PROJECT_DIR$/src/views/subscriber/Alerts.js" />
         <option value="$PROJECT_DIR$/src/components/LCD/LCD.js" />
         <option value="$PROJECT_DIR$/src/components/LCD/LCD.css" />
         <option value="$PROJECT_DIR$/src/components/MeterAlert/MeterAlert.js" />
         <option value="$PROJECT_DIR$/src/components/MeterAlert/MeterAlert.css" />
+        <option value="$PROJECT_DIR$/src/views/subscriber/Bills.js" />
       </list>
     </option>
   </component>
@@ -765,7 +760,7 @@
     <frame x="1920" y="27" width="1920" height="1053" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.27908218" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.27908218" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -779,7 +774,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="11" visible="true" weight="0.20910075" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.4452871" />
       <window_info anchor="bottom" id="Python Console" order="12" weight="0.32936078" />
       <window_info anchor="bottom" id="TypeScript" order="13" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -1107,16 +1102,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/subscriber/Bills.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="468">
-          <caret line="229" column="26" lean-forward="true" selection-start-line="229" selection-start-column="26" selection-end-line="229" selection-end-column="26" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -1170,8 +1155,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/MeterAlert/MeterAlert.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="70" column="30" lean-forward="true" selection-start-line="70" selection-start-column="30" selection-end-line="70" selection-end-column="37" />
+        <state relative-caret-position="36">
+          <caret line="52" column="326" selection-start-line="52" selection-start-column="326" selection-end-line="52" selection-end-column="326" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/subscriber/Bills.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="166" column="25" selection-start-line="166" selection-start-column="25" selection-end-line="166" selection-end-column="25" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
