@@ -115,7 +115,7 @@ constructor(props) {
                 let data = this.state.data;
                 let unitBalance = response.data.new_balance - response.data.device.unit_balance;
                 this.setState({unitBalance:unitBalance});
-                data.datasets[0].data = [unitBalance,  response.data.device.unit_balance];
+                data.datasets[0].data = [response.data.device.unit_balance, unitBalance];
                 this.setState(({data: data}));
             }
         })
@@ -141,9 +141,7 @@ constructor(props) {
 
 
      updatePrice =(price, unit)=> {
-        this.setState({price: price, unit:unit})
-
-
+        this.setState({price: price, unit:unit});
     };
 
 

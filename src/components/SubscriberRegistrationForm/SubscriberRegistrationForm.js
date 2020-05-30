@@ -20,7 +20,7 @@ function SubscriberRegistrationForm(props) {
     "successMessage": null
   });
   const handleChange = (e) => {
-    const { id, value } = e.target
+    const { id, value } = e.target;
     setState(prevState => ({
       ...prevState,
       [id]: value
@@ -38,7 +38,7 @@ function SubscriberRegistrationForm(props) {
         "address": state.address,
         "phone_number": state.phone_number,
         "device": state.device
-      }
+      };
       axios.post(API_BASE_URL + 'rest-auth/subscriber/registration/', payload)
         .then(function (response) {
           if (response.data.code === 201) {

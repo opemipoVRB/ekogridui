@@ -19,14 +19,14 @@ function StakeholderRegistrationForm(props) {
     "address": "",
     "phone_number": "",
     "successMessage": null
-  })
+  });
   const handleChange = (e) => {
-    const { id, value } = e.target
+    const { id, value } = e.target;
     setState(prevState => ({
       ...prevState,
       [id]: value
     }))
-  }
+  };
   const sendDetailsToServer = () => {
     if (state.email.length && state.password1.length) {
       props.showError(null);
@@ -39,14 +39,14 @@ function StakeholderRegistrationForm(props) {
         "password2": state.password2,
         "address": state.address,
         "phone_number": state.phone_number,
-      }
+      };
       axios.post(API_BASE_URL + 'rest-auth/stakeholder/registration/', payload)
         .then(function (response) {
           if (response.data.code === 201) {
             setState(prevState => ({
               ...prevState,
               'successMessage': 'Registration successful. Redirecting to home page..'
-            }))
+            }));
             redirectToHome();
             props.showError(null)
           }

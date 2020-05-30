@@ -11,6 +11,7 @@
     "axios": "^0.19.2",
     "chart.js": "2.9.3",
     "classnames": "2.2.6",
+    "cors": "^2.8.5",
     "express": "^4.17.1",
     "express-favicon": "^2.0.1",
     "history": "4.10.1",

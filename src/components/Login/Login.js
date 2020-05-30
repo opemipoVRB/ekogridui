@@ -90,7 +90,7 @@ function Login(props) {
                                             type="submit"
                                             className="btn btn-primary"
                                             onClick={handleSubmitClick}
-                                        >Submit
+                                        >Login
                         </button>
                                     </form>
                             }
