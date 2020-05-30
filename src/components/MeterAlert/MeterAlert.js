@@ -6,6 +6,7 @@ class MeterAlert extends Component {
         value: 450,
         min: 0,
         max: 5000,
+        status: "Start"
 
     };
 
@@ -28,7 +29,7 @@ class MeterAlert extends Component {
                 <fieldset>
                     <input type="range" name="rangeInput" min={this.state.min} max={this.state.max} value={this.state.value} onChange={this.setValue}/>
                 </fieldset>
-                <span  onClick={""}  className="alert-start">start</span>
+                <button  onClick={""}  className="alert-start">{this.state.status}</button>
 
 
             </div>

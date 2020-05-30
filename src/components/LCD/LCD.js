@@ -113,7 +113,8 @@ class LCD extends Component {
         console.log("Waow ", this.props.reading);
         return(
             <div>
-                <pre id="lcd">
+                <pre id="lcd"> <h2>KwH</h2>
+
                 </pre>
             </div>
         );
