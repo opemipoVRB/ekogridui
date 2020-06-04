@@ -24,15 +24,7 @@ class LCD extends Component {
          };
      }
 
-    space =(scale)=> {
 
-        let s = '';
-        scale = 1;
-        for(let i=0; i < scale; i++) {
-            s += ' ';
-        }
-        return s;
-    };
 
 
 
@@ -43,6 +35,16 @@ class LCD extends Component {
 
     componentDidUpdate (){
         this.onLoad();
+    };
+
+    space =(scale)=> {
+
+        let s = '';
+        scale = 1;
+        for(let i=0; i < scale; i++) {
+            s += ' ';
+        }
+        return s;
     };
 
 

@@ -10,13 +10,57 @@ class PowerButton extends Component {
     constructor(props) {
     super(props);
      this.state = {
-        user: Cookies.get("userID"),
-           visible: false
+         user: Cookies.get("userID"),
+         visible: false,
     };
      this.onDismiss = this.onDismiss.bind(this);
      this.PowerButton = this.PowerButton.bind(this)
      this.powerOn = this.powerOn.bind(this)
    }
+       componentDidMount (){
+        this.getStatus();
+    }
+
+    getStatus =()=>{
+             const user_id = this.state.user;
+       const token = Cookies.get('token');
+       axios(
+           {
+               headers: {
+                   Authorization: `Token ${token}`,
+                   'Content-Type': 'application/json',
+                   'Accept' : 'application/json',
+
+               },
+               method: 'get',
+               url: API_BASE_URL +'gridtracker/api/subscriber/device/controller/'+ user_id,
+               withCredentials: true
+            })
+             .then((response) => {
+                 if (response.status === 200) {
+                     if (response.data.state === 1){
+                         console.log("Data ", response.data);
+                         this.setState({status: 'on' });
+                     }
+                     else if(response.data.state === 2){
+                         console.log("Data ", response.data);
+                         this.setState({status: 'off' });
+                      }
+                     else if(response.data.state === 3){
+                         console.log("Data ", response.data);
+                         this.setState({status: 'disabled' });
+                         this.setState({visible: !this.state.visible})
+
+                     }
+                }
+            })
+            .catch((error) => {
+                if (error.response) {
+                    console.log('Error', error.message);
+                }
+            });
+
+    };
 
    onDismiss(){
     this.setState({visible: !this.state.visible})
@@ -24,17 +68,18 @@ class PowerButton extends Component {
     powerOn  = () =>  {
 
         const user_id = this.state.user;
-        let status = this.props.state;
+        let state ;
+        let status = this.state.status;
         const token = Cookies.get('token');
         console.log("Stat", status);
         if (status === "off"){
-            status = 1 //if off turn on
+            state = 1 //if off turn on
         }
         else if(status === "on"){
-            status = 2 //if on turn off
+            state = 2 //if on turn off
         }
         const params= {
-           'state': status
+           'state': state
         };
         console.log("Status ", status);
 
@@ -50,7 +95,17 @@ class PowerButton extends Component {
                 data: params
             })
             .then((response) => {
-                console.log(response.data)
+                console.log("Update ", response.data.state);
+                 if (response.data.state === 1){
+                     this.setState({status:"on"});
+                 }
+                 else if(response.data.state === 2){
+                     this.setState({status:"off"});
+                 }
+                 else if(response.data.state === 3){
+                     this.setState({status:"disabled"});
+                     this.onDismiss()
+                 }
             })
             .catch((error) => {
                 if (error.response) {
@@ -64,14 +119,14 @@ class PowerButton extends Component {
      PowerButton  = (e) =>  {
          e.preventDefault();
          let element = e.target;
-         if (this.props.state !=="disabled") {
+         if (this.state.status !=="disabled") {
              element.classList.toggle("on");
              this.powerOn()
 
          }
          else{
              element.className= "off";
-             var powerButton= document.getElementById("power-pad")
+             let powerButton= document.getElementById("power-pad");
              powerButton.disabled=true;
 
 
@@ -81,19 +136,19 @@ class PowerButton extends Component {
 
 
   render() {
-         console.log("Really ", this.props.state);
+         console.log("Really ", this.state.status);
     return (
         <div className="content">
              <section id="power-section">
                  <fieldset id="power-pad">
-                     <span  id="power-button" onClick={this.PowerButton}  className={this.props.state}> &#xF011;</span>
+                     <span  id="power-button" onClick={this.PowerButton}  className={this.state.status}> &#xF011;</span>
                      <span></span>
                  </fieldset>
 
              </section>
 
             <Alert color="warning" isOpen={this.state.visible} toggle={this.onDismiss}>
-                <span>Your device has been disabled contact your disco.</span>
+                <span>Your device has been disabled, contact your disco.</span>
             </Alert>
       </div>
 
