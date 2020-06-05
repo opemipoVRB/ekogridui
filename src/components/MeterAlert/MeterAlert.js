@@ -1,9 +1,11 @@
 import './MeterAlert.css';
 import React, {Component} from "react";
-import LCD from "../LCD/LCD";
+import  LCD from "../LCD/LCD";
+
 import axios from "axios";
 import {API_BASE_URL, WS_BASE_URL} from "../../constants/apiContants";
 import Cookies from "js-cookie";
+import MiniLCD from "../LCD/MiniLCD";
 class MeterAlert extends Component {
     state = {
         user: Cookies.get("userID"),
@@ -15,26 +17,28 @@ class MeterAlert extends Component {
         status: "Start",
         messages : [] ,
         ws: {},
+        result: {},
+        run: false
 
     };
     setValue =(e)=> {
         let element = e.target;
         let value = element.value;
-        this.setState({threshold: value});
+        this.setState({threshold: value,
+        });
     };
 
 
     componentDidMount () {
-        this.getAlert();
         this.getLimit();
+
     };
 
      componentDidUpdate (){
-         // if (this.state.status==="Stop"){
-         //     this.run();
-         // }
-
-    };
+         if (this.state.run ===true){
+             this.run();
+         }
+    }
 
      connect = (meter_no) =>{
             const ws= new  WebSocket(WS_BASE_URL+"gridtracker/telemetry/"+ meter_no);
@@ -56,17 +60,29 @@ class MeterAlert extends Component {
             })
             .then((response) => {
                 if (response.status === 200) {
+                     let threshold;
+                     let _result;
+                     let status;
                      response.data.results.forEach(function (result) {
                          if (result.is_on === true){
                              if(result.is_active === true){
-                                 console.log("Running", result);
-                                 this.setState({
-                                     threshold:result.threshold
-                                 });
-                                 console.log("Start Running", result);
+                                 threshold = result.threshold;
+                                 _result = result;
+                                 status = "Resume";
+
                              }
                          }
+                         else{
+                             status = "Start"
+                         }
                      });
+                     console.log(threshold);
+                     this.setState({
+                         threshold: threshold,
+                         result: _result,
+                         status: status,
+                     });
+
                      console.log("Sub Alert ", response.data.results);
                 }
             })
@@ -99,11 +115,14 @@ class MeterAlert extends Component {
             })
             .then((response) => {
                 if (response.status === 200) {
-                    console.log("Alert ", response.data.device.unit_balance);
+                    console.log("Unit Balance ", response.data.device.unit_balance);
                     console.log("Alert ", response.data.device.meter_no);
                     this.setState({max: response.data.device.unit_balance});
                     this.setState({meter_no: response.data.device.meter_no});
+                    this.getAlert();
                     this.connect(response.data.device.meter_no);
+
+
                 }
             })
             .catch((error) => {
@@ -114,6 +133,16 @@ class MeterAlert extends Component {
     };
 
     setThreshold =()=>{
+        console.log("Status  ...", this.state.status)
+
+        if (this.state.status==="Resume"){
+            this.setState({status: "Stop"});
+        }
+        else if (this.state.status==="Stop"){
+            this.setState({status: "Start"});
+        }
+
+
         if (this.state.status ==="Start"){
             const threshold =this.state.threshold;
             const token = this.state.token;
@@ -136,7 +165,7 @@ class MeterAlert extends Component {
         })
         .then((response) => {
             if (response.status === 201) {
-                console.log("Alert ", response.data);
+                console.log("Create Alert ", response.data);
                 this.setState({threshold: threshold, status: "Stop"});
             }
         })
@@ -145,10 +174,10 @@ class MeterAlert extends Component {
                 console.log('Error', error.message);
             }
         });
-
         }
         else if (this.state.status ==="Stop"){
-            alert("Stopping Alarm")
+            alert("Stopping Alarm");
+            this.setState({status: "Resume"});
 
         }
 
@@ -170,10 +199,21 @@ class MeterAlert extends Component {
        console.log("Initialize ", message);
        };
        //save whatever response from client
-        ws.onmessage = e =>{
-            let threshold =  JSON.parse(e.data)["message"]["unit-balance"];
-            console.log("Threshold ",threshold);
-            this.setState({threshold: parseInt(threshold)})
+        if (this.state.result.is_active===true){
+            ws.onmessage = e =>{
+            console.log("Message", e.data["message"]);
+            console.log("Message Type", typeof(e.data['message']) );
+
+            if (JSON.parse(e.data)["type"]==="alert-notification") {
+                alert(e.data["message"]);
+            }
+            else{
+                let threshold =  JSON.parse(e.data)["message"]["unit-balance"];
+                console.log("Threshold ",threshold);
+                this.setState({threshold: parseInt(threshold)})
+
+            }
+        }
         }
     };
 
@@ -184,8 +224,10 @@ class MeterAlert extends Component {
 
     render(){
         console.log("Threshold", this.state.threshold);
+        console.log("Min Threshold", this.state.max);
         return(
             <div>
+                <MiniLCD reading={ this.state.max}/>
                 <LCD reading={ this.state.threshold }/>
                 <fieldset>
                     <input

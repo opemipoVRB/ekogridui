@@ -1,7 +1,7 @@
-import './LCD.css';
+import './MiniLCD.css';
 import React, {Component} from "react";
 
-class LCD extends Component {
+class MiniLCD extends Component {
 
      constructor(props) {
          super(props);
@@ -94,9 +94,9 @@ class LCD extends Component {
 
 
       refresh = (event)=> {
-         let pre = document.getElementById('lcd');
+         let pre = document.getElementById('mini-lcd');
          let text = this.props.reading;  // Slider Value
-         pre.textContent = this.lcd(text.toString(), 2);
+         pre.textContent = this.lcd(text.toString(), 1);
          return false;
       };
 
@@ -112,9 +112,11 @@ class LCD extends Component {
 
 
     render(){
+        console.log("Waow ", this.props.reading);
         return(
             <div>
-                <pre id="lcd">
+                <pre id="mini-lcd" >
+
                 </pre>
             </div>
         );
@@ -125,4 +127,4 @@ class LCD extends Component {
 
 
 
-export default LCD;
+export default MiniLCD;
