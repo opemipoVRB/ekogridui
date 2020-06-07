@@ -112,7 +112,6 @@ class MiniLCD extends Component {
 
 
     render(){
-        console.log("Waow ", this.props.reading);
         return(
             <div>
                 <pre id="mini-lcd" >

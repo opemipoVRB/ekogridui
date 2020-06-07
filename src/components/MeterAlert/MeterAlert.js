@@ -6,21 +6,33 @@ import axios from "axios";
 import {API_BASE_URL, WS_BASE_URL} from "../../constants/apiContants";
 import Cookies from "js-cookie";
 import MiniLCD from "../LCD/MiniLCD";
+import {Alert} from "reactstrap";
 class MeterAlert extends Component {
-    state = {
-        user: Cookies.get("userID"),
-        token: Cookies.get("token"),
-        meter_no: "",
-        threshold: 0,
-        max: 0,
-        min: 0,
-        status: "Start",
-        messages : [] ,
-        ws: {},
-        result: {},
-        run: false
+     constructor(props) {
+         super(props);
+         this.state = {
+             user: Cookies.get("userID"),
+             token: Cookies.get("token"),
+             meter_no: "",
+             threshold: 0,
+             trigger:0,
+             max: 0,
+             min: 0,
+             status: "Start",
+             messages : [] ,
+             message: "",
+             ws: {},
+             result: {},
+             run: false,
+             pk: null,
+             visible: false,
+         };
+         this.onDismiss = this.onDismiss.bind(this);
+     }
+     onDismiss(){
+         this.setState({visible: !this.state.visible})
+     }
 
-    };
     setValue =(e)=> {
         let element = e.target;
         let value = element.value;
@@ -47,7 +59,7 @@ class MeterAlert extends Component {
 
      getAlert =()=>{
          const token = this.state.token;
-        axios(
+         axios(
             {
                 headers: {
                     Authorization: `Token ${token}`,
@@ -60,30 +72,70 @@ class MeterAlert extends Component {
             })
             .then((response) => {
                 if (response.status === 200) {
-                     let threshold;
-                     let _result;
-                     let status;
+                     let threshold = this.state.threshold;
+                     let _result = this.state.result;
+                     let pk =this.state.pk;
+                     let status =this.state.status;
+                     let trigger = this.state.trigger;
+                     let run = this.state.run;
                      response.data.results.forEach(function (result) {
                          if (result.is_on === true){
                              if(result.is_active === true){
                                  threshold = result.threshold;
+                                 trigger = result.trigger;
                                  _result = result;
-                                 status = "Resume";
-
+                                 pk = result.id;
+                                 status = "Stop";
+                                 run = true
                              }
-                         }
-                         else{
-                             status = "Start"
+
                          }
                      });
-                     console.log(threshold);
                      this.setState({
                          threshold: threshold,
                          result: _result,
+                         trigger: trigger,
                          status: status,
+                         pk : pk,
+                         run: run,
                      });
+                }
+            })
+            .catch((error) => {
+                if (error.response) {
+                    console.log('Error', error.message);
+                }
+            });
 
-                     console.log("Sub Alert ", response.data.results);
+     };
+
+
+     pauseAlert =(on, active)=>{
+         const token = this.state.token;
+         const pk = this.state.pk;
+         const threshold = this.state.threshold;
+         const payload ={
+             is_on: on,
+             is_active: active,
+             threshold:threshold,
+         };
+
+         axios(
+            {
+                headers: {
+                    Authorization: `Token ${token}`,
+                    'Content-Type': 'application/json',
+                    'Accept' : 'application/json',
+                },
+
+                method: 'put',
+                url: API_BASE_URL +'gridtracker/api/update/alert/'+ pk,
+                withCredentials: true,
+                data: payload,
+            })
+            .then((response) => {
+                if (response.status === 200) {
+                    console.log("Pause...", response.data);
                 }
             })
             .catch((error) => {
@@ -115,8 +167,6 @@ class MeterAlert extends Component {
             })
             .then((response) => {
                 if (response.status === 200) {
-                    console.log("Unit Balance ", response.data.device.unit_balance);
-                    console.log("Alert ", response.data.device.meter_no);
                     this.setState({max: response.data.device.unit_balance});
                     this.setState({meter_no: response.data.device.meter_no});
                     this.getAlert();
@@ -133,8 +183,7 @@ class MeterAlert extends Component {
     };
 
     setThreshold =()=>{
-        console.log("Status  ...", this.state.status)
-
+        console.log("Status  ...", this.state.status);
         if (this.state.status==="Resume"){
             this.setState({status: "Stop"});
         }
@@ -145,9 +194,11 @@ class MeterAlert extends Component {
 
         if (this.state.status ==="Start"){
             const threshold =this.state.threshold;
+            const trigger = this.state.max;
             const token = this.state.token;
             const payload = {
-            threshold: threshold,
+                threshold: threshold,
+                trigger: trigger
             };
         axios(
             {
@@ -167,6 +218,11 @@ class MeterAlert extends Component {
             if (response.status === 201) {
                 console.log("Create Alert ", response.data);
                 this.setState({threshold: threshold, status: "Stop"});
+                this.setState({run: true});
+                console.log("Payload ", payload);
+                console.log("Payload ", typeof(threshold));
+                console.log("Payload ", typeof(trigger));
+                window.location.reload(false);
             }
         })
         .catch((error) => {
@@ -177,12 +233,19 @@ class MeterAlert extends Component {
         }
         else if (this.state.status ==="Stop"){
             alert("Stopping Alarm");
+            let on = false;
+            let active = false;
+            this.pauseAlert(on, active);
             this.setState({status: "Resume"});
-
         }
-
-
- };
+        else if (this.state.status ==="Resume"){
+            alert("Resume Alarm");
+            let on = true;
+            let active = true;
+            this.pauseAlert(on, active);
+            this.setState({status: "Stop"});
+        }
+    };
 
 
     run = () =>{
@@ -201,19 +264,25 @@ class MeterAlert extends Component {
        //save whatever response from client
         if (this.state.result.is_active===true){
             ws.onmessage = e =>{
-            console.log("Message", e.data["message"]);
-            console.log("Message Type", typeof(e.data['message']) );
 
-            if (JSON.parse(e.data)["type"]==="alert-notification") {
-                alert(e.data["message"]);
+                let message=JSON.parse(e.data)["message"];
+                if (message["type"]==="alert-notification") {
+                    this.setState({message: message["message"]});
+                    this.setState({visible: true});
+                    console.log("Alert Message ", message["message"] )
+                }
+                else{
+                    this.setState({visible: false});
+                    let trigger =  message["unit-balance"];
+                    console.log("Threshold ",trigger);
+                    if (trigger <= this.state.threshold) {
+                        window.location.reload(false);
+                    }
+                    else {
+                        this.setState({trigger: parseInt(trigger)});
+                    }
+                }
             }
-            else{
-                let threshold =  JSON.parse(e.data)["message"]["unit-balance"];
-                console.log("Threshold ",threshold);
-                this.setState({threshold: parseInt(threshold)})
-
-            }
-        }
         }
     };
 
@@ -223,18 +292,23 @@ class MeterAlert extends Component {
 
 
     render(){
-        console.log("Threshold", this.state.threshold);
-        console.log("Min Threshold", this.state.max);
+        console.log("LCD", this.state.threshold);
+        console.log("RUN", this.state.run);
+        console.log("Trigger", this.state.trigger);
+        console.log("Min LCD", this.state.max);
         return(
             <div>
-                <MiniLCD reading={ this.state.max}/>
-                <LCD reading={ this.state.threshold }/>
+                <MiniLCD reading={(this.state.run===false) ? parseInt(this.state.max) : parseInt(this.state.threshold)}/>
+                <LCD reading={(this.state.run===true) ? parseInt(this.state.trigger) :parseInt(this.state.threshold)}/>
                 <fieldset>
+                    <Alert color="info" isOpen={this.state.visible} toggle={this.onDismiss}>
+                        <span>{this.state.message}</span>
+                    </Alert>
                     <input
                         type="range"
                         name="rangeInput" min={this.state.min}
                         max={this.state.max}
-                        value={this.state.threshold}
+                        value={(this.state.run===true) ? this.state.trigger :this.state.threshold}
                         onChange={this.setValue}
                     />
                 </fieldset>

@@ -41,13 +41,11 @@ import {
 } from "reactstrap";
 
 // core components
-import {
-    chartExample3,
-    chartExample4
-} from "components/DataSet/DataSet.js";
+
 import Cookies from "js-cookie";
 import axios from "axios";
 import {API_BASE_URL} from "../../constants/apiContants";
+import {chartExample3} from "../../components/DataSet/DataSet";
 
 
 
@@ -60,13 +58,113 @@ class SubscriberDashboard extends React.Component {
         data: [],
         pLabels: [],
         pData: [],
-        totalPower: null,
+        totalPower: 0,
+        alert_data:[],
+        alert_labels:[],
+        alertData:[],
+        alertLabels:[],
+        token:Cookies.get('token'),
+        lastAlert: 0,
+        subscription_data:[],
+        subscription_labels:[],
+        subscriptionData:[],
+        subscriptionLabels:[],
+        lastSubscription: 0,
     };
   }
   componentDidMount(){
-        this.getChartData();
+        this.getEnergyLevels();
+        this.getAlerts();
+        this.getPastSubscription();
   }
 
+
+
+
+     getPastSubscription=()=> {
+        const token = this.state.token;
+        axios(
+            {
+                headers: {
+                    Authorization: `Token ${token}`,
+                    'Content-Type': 'application/json',
+                    'Accept' : 'application/json',
+                },
+
+                method: 'get',
+                url: API_BASE_URL +'gridtracker/api/view/transactions',
+                withCredentials: true
+
+            })
+            .then((response) => {
+                if (response.status === 200){
+                                        const data = response.data.results;
+                    const labels =[];
+                    const dataArray=[];
+                    const paymentArray=[];
+                    data.forEach(packet=>{
+                         labels.push(this.getFormatDate(new Date(packet["date"])));
+                         dataArray.push(parseFloat(packet["units_purchased"]));
+                         paymentArray.push(parseFloat(packet["payment"]));
+                     });
+
+                    this.setState({ subscription_data:dataArray, subscription_labels:labels, lastSubscription: this.last(paymentArray, 1)[0],   subscriptionData:this.last(dataArray, 6), subscriptionLabels:this.last(labels, 6)})
+
+
+
+                }
+            })
+            .catch((error) => {
+                if (error.response) {
+                    console.log('Error', error.message);
+                }
+            });
+
+
+    };
+
+  last =(array, n)=> {
+      if (array == null)
+          return void 0;
+      if (n == null)
+          return array[array.length - 1];
+      return array.slice(Math.max(array.length - n, 0));
+  };
+
+
+  getAlerts =()=>{
+         const token = this.state.token;
+         axios(
+            {
+                headers: {
+                    Authorization: `Token ${token}`,
+                    'Content-Type': 'application/json',
+                    'Accept' : 'application/json',
+                },
+                method: 'get',
+                url: API_BASE_URL +'gridtracker/api/alerts/',
+                withCredentials: true
+            })
+            .then((response) => {
+                if (response.status === 200) {
+                    const data = response.data.results;
+                    const labels =[];
+                    const dataArray=[];
+                    data.forEach(packet=>{
+                         labels.push(this.getFormatDate(new Date(packet["completed_at"])));
+                         dataArray.push(parseFloat(packet["threshold"]));
+                     });
+                    this.setState({ alert_data:dataArray, alert_labels:labels, lastAlert: this.last(dataArray, 1)[0],   alertData: this.last(dataArray, 6), alertLabels:this.last(labels, 6)})
+
+                }
+            })
+             .catch((error) => {
+                if (error.response) {
+                    console.log('Error', error.message);
+                }
+            });
+
+     };
 
 
   getFormatDate = (date) => {
@@ -78,8 +176,8 @@ class SubscriberDashboard extends React.Component {
   };
 
 
-  getChartData(){
-      const token = Cookies.get('token');
+  getEnergyLevels = ()=> {
+      const token = this.state.token;
       axios(
           {
               headers: {
@@ -100,17 +198,11 @@ class SubscriberDashboard extends React.Component {
                          labels.push(this.getFormatDate(new Date(packet["published_date"])));
                          dataArray.push(parseFloat(packet["power_consumption"]));
                      });
-                     var totalPower = Math.round(dataArray.reduce(function(a, b){
+                     let totalPower = Math.round(dataArray.reduce(function(a, b){
                          return a + b }, 0));
-                     var last =  function(array, n) {
-                         if (array == null)
-                             return void 0;
-                         if (n == null)
-                             return array[array.length - 1];
-                         return array.slice(Math.max(array.length - n, 0));
-                     };
+                     console.log("Power Consumed ", dataArray);
 
-                     this.setState({ data:dataArray, labels:labels, totalPower:totalPower, pData:last(dataArray, 6), pLabels:last(labels, 6)})
+                     this.setState({ data:dataArray, labels:labels, totalPower:totalPower, pData:this.last(dataArray, 6), pLabels:this.last(labels, 6)})
                  }
              })
           .catch((error) => {
@@ -118,13 +210,27 @@ class SubscriberDashboard extends React.Component {
                     console.log('Error', error.message);
                 }
             });
-    }
+    };
   setBgChartData = name => {
     this.setState({
       bigChartData: name
     });
 
   };
+
+
+    addCommas = (nStr)=> {
+     nStr += '';
+     let x = nStr.split('.');
+     let x1 = x[0];
+     let x2 = x.length > 1 ? '.' + x[1] : '';
+     let rgx = /(\d+)(\d{3})/;
+     while (rgx.test(x1)) {
+      x1 = x1.replace(rgx, '$1'.concat(',' , '$2'));
+     }
+     return x1 + x2;
+    };
+
   render() {
       let chart1_2_options = {
           maintainAspectRatio: false,
@@ -221,7 +327,7 @@ class SubscriberDashboard extends React.Component {
         labels: this.state.pLabels,
         datasets: [
             {
-                label: "Data",
+                label: "Power Consumed in Kwh",
                 fill: true,
                 backgroundColor: gradientStroke,
                 borderColor: "#1f8ef1",
@@ -241,6 +347,169 @@ class SubscriberDashboard extends React.Component {
     };
   },
   options: chart1_2_options
+};
+
+
+          let alertChart = {
+       data: canvas => {
+    let ctx = canvas.getContext("2d");
+
+    let gradientStroke = ctx.createLinearGradient(0, 230, 0, 50);
+
+    gradientStroke.addColorStop(1, "rgba(66,134,121,0.15)");
+    gradientStroke.addColorStop(0.4, "rgba(66,134,121,0.0)"); //green colors
+    gradientStroke.addColorStop(0, "rgba(66,134,121,0)"); //green colors
+
+    return {
+      labels: this.state.alertLabels,
+      datasets: [
+        {
+          label: "Alert thresholds",
+          fill: true,
+          backgroundColor: gradientStroke,
+          borderColor: "#00d6b4",
+          borderWidth: 2,
+          borderDash: [],
+          borderDashOffset: 0.0,
+          pointBackgroundColor: "#00d6b4",
+          pointBorderColor: "rgba(255,255,255,0)",
+          pointHoverBackgroundColor: "#00d6b4",
+          pointBorderWidth: 20,
+          pointHoverRadius: 4,
+          pointHoverBorderWidth: 15,
+          pointRadius: 4,
+          data: this.state.alertData,
+        }
+      ]
+    };
+  },
+  options: {
+    maintainAspectRatio: false,
+    legend: {
+      display: false
+    },
+
+    tooltips: {
+      backgroundColor: "#f5f5f5",
+      titleFontColor: "#333",
+      bodyFontColor: "#666",
+      bodySpacing: 4,
+      xPadding: 12,
+      mode: "nearest",
+      intersect: 0,
+      position: "nearest"
+    },
+    responsive: true,
+    scales: {
+      yAxes: [
+        {
+          barPercentage: 1.6,
+          gridLines: {
+            drawBorder: false,
+            color: "rgba(29,140,248,0.0)",
+            zeroLineColor: "transparent"
+          },
+          ticks: {
+            suggestedMin: 50,
+            suggestedMax: 125,
+            padding: 20,
+            fontColor: "#9e9e9e"
+          }
+        }
+      ],
+
+      xAxes: [
+        {
+          barPercentage: 1.6,
+          gridLines: {
+            drawBorder: false,
+            color: "rgba(0,242,195,0.1)",
+            zeroLineColor: "transparent"
+          },
+          ticks: {
+            padding: 20,
+            fontColor: "#9e9e9e"
+          }
+        }
+      ]
+    }
+  }
+    };
+
+          let pastPayment = {
+  data: canvas => {
+    let ctx = canvas.getContext("2d");
+
+    let gradientStroke = ctx.createLinearGradient(0, 230, 0, 50);
+
+    gradientStroke.addColorStop(1, "rgba(72,72,176,0.1)");
+    gradientStroke.addColorStop(0.4, "rgba(72,72,176,0.0)");
+    gradientStroke.addColorStop(0, "rgba(119,52,169,0)"); //purple colors
+
+    return {
+      labels: this.state.subscriptionLabels,
+      datasets: [
+        {
+          label: "Unit Power in Kwh",
+          fill: true,
+          backgroundColor: gradientStroke,
+          hoverBackgroundColor: gradientStroke,
+          borderColor: "#d048b6",
+          borderWidth: 2,
+          borderDash: [],
+          borderDashOffset: 0.0,
+          data: this.state.subscriptionData,
+        }
+      ]
+    };
+  },
+  options: {
+    maintainAspectRatio: false,
+    legend: {
+      display: false
+    },
+    tooltips: {
+      backgroundColor: "#f5f5f5",
+      titleFontColor: "#333",
+      bodyFontColor: "#666",
+      bodySpacing: 4,
+      xPadding: 12,
+      mode: "nearest",
+      intersect: 0,
+      position: "nearest"
+    },
+    responsive: true,
+    scales: {
+      yAxes: [
+        {
+          gridLines: {
+            drawBorder: false,
+            color: "rgba(225,78,202,0.1)",
+            zeroLineColor: "transparent"
+          },
+          ticks: {
+            suggestedMin: 60,
+            suggestedMax: 120,
+            padding: 20,
+            fontColor: "#9e9e9e"
+          }
+        }
+      ],
+      xAxes: [
+        {
+          gridLines: {
+            drawBorder: false,
+            color: "rgba(225,78,202,0.1)",
+            zeroLineColor: "transparent"
+          },
+          ticks: {
+            padding: 20,
+            fontColor: "#9e9e9e"
+          }
+        }
+      ]
+    }
+  }
 };
     return (
       <>
@@ -276,7 +545,7 @@ class SubscriberDashboard extends React.Component {
                   <h5 className="card-category">Power Consumption</h5>
                   <CardTitle tag="h3">
                     <i className="tim-icons icon-bulb-63 text-info" />{" "}
-                      {this.state.totalPower} Kwh
+                      {(this.state.totalPower)?this.addCommas(this.state.totalPower): 0} Kwh
                   </CardTitle>
                 </CardHeader>
                 <CardBody>
@@ -292,17 +561,17 @@ class SubscriberDashboard extends React.Component {
             <Col lg="4">
               <Card className="card-chart">
                 <CardHeader>
-                  <h5 className="card-category">Current Balance</h5>
+                  <h5 className="card-category">Last Subscription</h5>
                   <CardTitle tag="h3">
                     <i className="tim-icons icon-delivery-fast text-primary" />{" "}
-                    ₦2,500
+                    ₦ {(this.state.lastSubscription)?this.addCommas(this.state.lastSubscription): 0}
                   </CardTitle>
                 </CardHeader>
                 <CardBody>
                   <div className="chart-area">
                     <Bar
-                      data={chartExample3.data}
-                      options={chartExample3.options}
+                      data={pastPayment.data}
+                      options={pastPayment.options}
                     />
                   </div>
                 </CardBody>
@@ -313,14 +582,14 @@ class SubscriberDashboard extends React.Component {
                 <CardHeader>
                   <h5 className="card-category">Completed Alerts</h5>
                   <CardTitle tag="h3">
-                    <i className="tim-icons icon-send text-success" /> 3,100Kwh
+                    <i className="tim-icons icon-send text-success" /> {(this.state.lastAlert) ? this.addCommas(this.state.lastAlert): 0} Kwh
                   </CardTitle>
                 </CardHeader>
                 <CardBody>
                   <div className="chart-area">
                     <Line
-                      data={chartExample4.data}
-                      options={chartExample4.options}
+                      data={alertChart.data}
+                      options={alertChart.options}
                     />
                   </div>
                 </CardBody>
@@ -328,7 +597,7 @@ class SubscriberDashboard extends React.Component {
             </Col>
           </Row>
           <Row>
-            <Col lg="6" md="12">
+            <Col xs="12">
               <Card className="card-tasks">
                 <CardHeader>
                   <h6 className="title d-inline">News Update</h6>

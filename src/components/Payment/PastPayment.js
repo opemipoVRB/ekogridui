@@ -147,7 +147,7 @@ class PastPayment extends Component {
                      <th>Description</th>
                      <th>Reference</th>
                      <th>Payment</th>
-                     <th className="text-center">Balance</th>
+                     <th className="text-center">Units Purchased</th>
                  </tr>
                  </thead>
                  <tbody>

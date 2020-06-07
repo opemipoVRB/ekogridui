@@ -47,7 +47,7 @@ class Footer extends React.Component {
             >
               Vectorians
             </a>{" "}
-            for a smarter power grids.
+            for smarter power grids.
           </div>
         </Container>
       </footer>

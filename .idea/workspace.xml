@@ -2,12 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d908807e-de6b-4b25-9b47-f24b970a2aee" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/LCD/MiniLCD.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/LCD/MiniLCD.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/LCD/LCD.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/LCD/LCD.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/LCD/LCD.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/LCD/LCD.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Footer/Footer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Footer/Footer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/LCD/MiniLCD.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/LCD/MiniLCD.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/MeterAlert/MeterAlert.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MeterAlert/MeterAlert.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Payment/PastPayment.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Payment/PastPayment.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/subscriber/Dashboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/subscriber/Dashboard.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -31,11 +31,37 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/MeterAlert/MeterAlert.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="137" column="8" selection-start-line="137" selection-start-column="8" selection-end-line="137" selection-end-column="8" />
+            <state relative-caret-position="270">
+              <caret line="15" column="14" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="14" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/views/subscriber/Dashboard.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="225">
+              <caret line="329" column="45" selection-start-line="329" selection-start-column="45" selection-end-line="329" selection-end-column="45" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+                <element signature="e#794#1030#0" expanded="true" />
+                <element signature="e#1052#1084#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/views/subscriber/Bills.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="4194">
+              <caret line="240" column="24" selection-start-line="240" selection-start-column="17" selection-end-line="240" selection-end-column="28" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -44,13 +70,19 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/LCD/LCD.js">
+        <entry file="file://$PROJECT_DIR$/src/components/Payment/PastPayment.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="262">
-              <caret line="113" column="13" selection-start-line="113" selection-start-column="13" selection-end-line="113" selection-end-column="13" />
-              <folding>
-                <element signature="e#0#19#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="169">
+              <caret line="129" column="47" selection-start-line="129" selection-start-column="47" selection-end-line="129" selection-end-column="62" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/DataSet/DataSet.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="331">
+              <caret line="314" column="2" lean-forward="true" selection-start-line="240" selection-end-line="314" selection-end-column="2" />
             </state>
           </provider>
         </entry>
@@ -59,7 +91,7 @@
         <entry file="file://$PROJECT_DIR$/src/components/LCD/MiniLCD.css">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="126">
-              <caret line="7" column="23" lean-forward="true" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="23" />
+              <caret line="7" column="23" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -68,7 +100,7 @@
         <entry file="file://$PROJECT_DIR$/src/components/LCD/LCD.css">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="126">
-              <caret line="7" column="1" lean-forward="true" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
+              <caret line="7" column="1" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -76,11 +108,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/LCD/MiniLCD.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="162">
-              <caret line="98" column="54" selection-start-line="98" selection-start-column="54" selection-end-line="98" selection-end-column="54" />
-              <folding>
-                <element signature="e#0#19#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="2016">
+              <caret line="113" column="13" selection-start-line="113" selection-start-column="13" selection-end-line="113" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -116,20 +145,8 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>data</find>
-      <find>float</find>
-      <find>100</find>
-      <find>absol</find>
-      <find>absolute</find>
-      <find>top</find>
-      <find>dis</find>
-      <find>va</find>
-      <find>var</find>
-      <find>ff</find>
-      <find>this.setState({rate:</find>
       <find>env</find>
       <find>Da</find>
-      <find>Data</find>
       <find>Re</find>
       <find>Status</find>
       <find>this.state.value</find>
@@ -141,11 +158,23 @@
       <find>props</find>
       <find>this.run</find>
       <find>Al</find>
-      <find>max</find>
       <find>result</find>
       <find>aler</find>
       <find>Stop</find>
       <find>Resume</find>
+      <find>&quot;put&quot;</find>
+      <find>alert(</find>
+      <find>max</find>
+      <find>run</find>
+      <find>consol</find>
+      <find>visi</find>
+      <find>connec</find>
+      <find>re</find>
+      <find>post</find>
+      <find>get</find>
+      <find>Curr</find>
+      <find>Las</find>
+      <find>Data</find>
     </findStrings>
     <replaceStrings>
       <replace>powerConsumption</replace>
@@ -164,9 +193,13 @@
         <option value="$PROJECT_DIR$/src/constants/apiContants.js" />
         <option value="$PROJECT_DIR$/src/components/LCD/LCD.css" />
         <option value="$PROJECT_DIR$/src/components/LCD/LCD.js" />
-        <option value="$PROJECT_DIR$/src/components/LCD/MiniLCD.js" />
         <option value="$PROJECT_DIR$/src/components/LCD/MiniLCD.css" />
+        <option value="$PROJECT_DIR$/src/components/Footer/Footer.js" />
+        <option value="$PROJECT_DIR$/src/components/LCD/MiniLCD.js" />
+        <option value="$PROJECT_DIR$/src/components/PowerButton/PowerButton.js" />
         <option value="$PROJECT_DIR$/src/components/MeterAlert/MeterAlert.js" />
+        <option value="$PROJECT_DIR$/src/components/Payment/PastPayment.js" />
+        <option value="$PROJECT_DIR$/src/views/subscriber/Dashboard.js" />
       </list>
     </option>
   </component>
@@ -184,11 +217,11 @@
       <path value="$PROJECT_DIR$/package.json" />
     </packageJsonPaths>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="1869" />
-    <option name="y" value="55" />
-    <option name="width" value="1910" />
-    <option name="height" value="992" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="1920" />
+    <option name="y" value="27" />
+    <option name="width" value="1920" />
+    <option name="height" value="1053" />
   </component>
   <component name="ProjectId" id="1cjV3dHxE7zZvnovS6tvYxGBbh0" />
   <component name="ProjectInspectionProfilesVisibleTreeState">
@@ -222,7 +255,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -246,26 +278,33 @@
               <item name="ekogridui" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="LCD" type="462c0819:PsiDirectoryNode" />
+              <item name="DataSet" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ekogridui" type="b2602c69:ProjectViewProjectNode" />
               <item name="ekogridui" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="MeterAlert" type="462c0819:PsiDirectoryNode" />
+              <item name="Footer" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ekogridui" type="b2602c69:ProjectViewProjectNode" />
               <item name="ekogridui" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="Payment" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ekogridui" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ekogridui" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="subscriber" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="ProjectViewState">
@@ -659,15 +698,15 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1869" y="55" width="1910" height="992" extended-state="0" />
+    <frame x="1920" y="27" width="1920" height="1053" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2081545" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17129135" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32936078" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.28886312" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.27302274" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -676,7 +715,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="11" weight="0.32936078" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.3066089" />
       <window_info anchor="bottom" id="Python Console" order="12" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -692,10 +731,8 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="2713" y="425" width="287" height="256" key="#Notifications" timestamp="1591044032616">
-      <screen x="1920" y="0" width="1920" height="1080" />
-    </state>
-    <state x="2713" y="425" width="287" height="256" key="#Notifications/1920.0.1920.1080/0.27.1920.1053@1920.0.1920.1080" timestamp="1591044032616" />
+    <state x="2713" y="425" width="287" height="256" key="#Notifications" />
+    <state x="2713" y="425" width="287" height="256" key="#Notifications/1920.0.1920.1080/0.27.1920.1053@1920.0.1920.1080" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -747,6 +784,58 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/MeterAlert/MeterAlert.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3500">
+          <caret line="2" selection-start-line="2" selection-end-line="4" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Footer/Footer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="444">
+          <caret line="49" column="15" lean-forward="true" selection-start-line="49" selection-start-column="15" selection-end-line="49" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/PowerButton/PowerButton.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2052">
+          <caret line="119" column="28" selection-start-line="119" selection-start-column="28" selection-end-line="119" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/LCD/LCD.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1854">
+          <caret line="104" column="17" selection-start-line="104" selection-start-column="15" selection-end-line="104" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/subscriber/Bills.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4194">
+          <caret line="240" column="24" selection-start-line="240" selection-start-column="17" selection-end-line="240" selection-end-column="28" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/LCD/LCD.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="7" column="1" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/LCD/MiniLCD.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2016">
+          <caret line="113" column="13" selection-start-line="113" selection-start-column="13" selection-end-line="113" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/constants/apiContants.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -761,53 +850,45 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/LCD/LCD.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="262">
-          <caret line="113" column="13" selection-start-line="113" selection-start-column="13" selection-end-line="113" selection-end-column="13" />
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/LCD/MiniLCD.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="98" column="54" selection-start-line="98" selection-start-column="54" selection-end-line="98" selection-end-column="54" />
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/MeterAlert/MeterAlert.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3500">
-          <caret line="2" selection-start-line="2" selection-end-line="4" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/LCD/LCD.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="7" column="1" lean-forward="true" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/LCD/MiniLCD.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
-          <caret line="7" column="23" lean-forward="true" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="23" />
+          <caret line="7" column="23" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="23" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/MeterAlert/MeterAlert.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="137" column="8" selection-start-line="137" selection-start-column="8" selection-end-line="137" selection-end-column="8" />
+        <state relative-caret-position="270">
+          <caret line="15" column="14" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="14" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Payment/PastPayment.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="169">
+          <caret line="129" column="47" selection-start-line="129" selection-start-column="47" selection-end-line="129" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/DataSet/DataSet.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="331">
+          <caret line="314" column="2" lean-forward="true" selection-start-line="240" selection-end-line="314" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/subscriber/Dashboard.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="329" column="45" selection-start-line="329" selection-start-column="45" selection-end-line="329" selection-end-column="45" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#794#1030#0" expanded="true" />
+            <element signature="e#1052#1084#0" expanded="true" />
           </folding>
         </state>
       </provider>
