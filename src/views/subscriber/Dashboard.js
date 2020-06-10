@@ -45,8 +45,6 @@ import {
 import Cookies from "js-cookie";
 import axios from "axios";
 import {API_BASE_URL} from "../../constants/apiContants";
-import {chartExample3} from "../../components/DataSet/DataSet";
-
 
 
 class SubscriberDashboard extends React.Component {

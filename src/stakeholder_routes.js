@@ -5,6 +5,7 @@ import BillingManagement from "./views/stakeholder/BillingManagement";
 import DeviceManagement from "./views/stakeholder/DeviceManagement";
 import Messages from "./views/stakeholder/Messages";
 import ChatbotManagement from "./views/stakeholder/ChatbotManagement";
+import Subscribers from "./views/stakeholder/Subscribers";
 
 
 var routes =[
@@ -15,6 +16,14 @@ var routes =[
     component: StakeholderDashboard,
     layout: "/stakeholder"
     },
+
+     {
+    path: "/subscriber-management",
+    name: "Subscribers",
+    icon: "tim-icons icon-single-02",
+    component: Subscribers,
+    layout: "/stakeholder"
+  },
 
     {
     path: "/billing-management",
@@ -38,13 +47,6 @@ var routes =[
     component: Map,
     layout: "/stakeholder"
   },
-    {
-    path: "/user-profile",
-    name: "User Profile",
-    icon: "tim-icons icon-single-02",
-    component: UserProfile,
-    layout: "/stakeholder"
-  },
   {
     path: "/messages",
     name: "Messages",
@@ -58,7 +60,15 @@ var routes =[
         icon: "tim-icons icon-components",
         component: ChatbotManagement,
         layout: "/stakeholder"
-    }
+    },
+
+ {
+    path: "/user-profile",
+    name: "User Profile",
+    icon: "tim-icons icon-single-02",
+    component: UserProfile,
+    layout: "/stakeholder"
+  },
 ];
 
 
