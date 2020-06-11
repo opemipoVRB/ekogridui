@@ -60,7 +60,7 @@ class PastPayment extends Component {
                 },
 
                 method: 'get',
-                url: API_BASE_URL +'gridtracker/api/view/transactions',
+                url: API_BASE_URL +'gridtracker/api/view/reverse/transactions',
                 withCredentials: true
 
             })
@@ -68,10 +68,10 @@ class PastPayment extends Component {
                 if (response.status === 200){
                     const transactions = response.data.results;
                     const slice = transactions.slice(this.state.offset, this.state.offset + this.state.perPage);
-                    const transactionData = slice.map(( transaction) =>
+                    const transactionData = slice.map(( transaction, index) =>
                         <React.Fragment>
                             <tr>
-                                <td>{transaction.id}</td>
+                                <td>{index + 1}</td>
                                 <td>{ this.formatDate(transaction.date)}</td>
                                 <td>{ (transaction.description === 2)? "Customer Payment" : "Usage Invoice"}</td>
                                 <td>{transaction.reference}</td>
