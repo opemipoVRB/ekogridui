@@ -32,7 +32,7 @@ import {
   Col
 } from "reactstrap";
 
-class UserProfile extends React.Component {
+class DiscoProfile extends React.Component {
   render() {
     return (
       <>
@@ -209,4 +209,4 @@ class UserProfile extends React.Component {
   }
 }
 
-export default UserProfile;
+export default DiscoProfile;

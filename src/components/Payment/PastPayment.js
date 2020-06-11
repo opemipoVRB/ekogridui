@@ -73,13 +73,14 @@ class PastPayment extends Component {
                             <tr>
                                 <td>{transaction.id}</td>
                                 <td>{ this.formatDate(transaction.date)}</td>
-                                {/*<td>{ transaction.date}</td>*/}
                                 <td>{ (transaction.description === 2)? "Customer Payment" : "Usage Invoice"}</td>
                                 <td>{transaction.reference}</td>
                                 <td>₦{transaction.payment}</td>
                                 <td className="text-center">{transaction.units_purchased} Kwh</td>
                             </tr>
                     </React.Fragment>);
+                    console.log("Wow", transactions);
+                    console.log("Waow", slice);
 
                     this.setState({
                         pageCount: Math.ceil(transactions.length/ this.state.perPage),
@@ -113,25 +114,6 @@ class PastPayment extends Component {
     };
 
 
-
-
-
-   getPaymentTable(){
-      return this.state.transactions.map((transaction,  index) => {
-          const {id, date, description, reference, payment ,units_purchased} = transaction;
-          return(
-
-              <tr key={index}>
-                  <td>{id}</td>
-                  <td>{date}</td>
-                  <td>{description}</td>
-                  <td>{reference}</td>
-                  <td>₦{payment}</td>
-                  <td className="text-center">{units_purchased} Kwh</td>
-              </tr>
-          )
-      })
-  }
 
 
 

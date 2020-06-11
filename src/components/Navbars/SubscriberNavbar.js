@@ -37,6 +37,7 @@ import {
   Modal
 } from "reactstrap";
 import {logout} from "../../store/actions/auth";
+import {Link} from "react-router-dom";
 
 
 class SubscriberNavbar extends React.Component {
@@ -203,7 +204,9 @@ class SubscriberNavbar extends React.Component {
                   </DropdownToggle>
                   <DropdownMenu className="dropdown-navbar" right tag="ul">
                     <NavLink tag="li">
+                        <Link to="/subscriber/user-profile/">
                       <DropdownItem className="nav-item">Profile</DropdownItem>
+                        </Link>
                     </NavLink>
                     <NavLink tag="li">
                       <DropdownItem className="nav-item">Settings</DropdownItem>

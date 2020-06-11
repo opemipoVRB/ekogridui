@@ -4,6 +4,8 @@ import Bills from "views/subscriber/Bills.js";
 import MeterController from "views/subscriber/MeterController";
 import Alerts from "views/subscriber/Alerts";
 import Chats from "views/subscriber/Chats";
+import DiscoProfile from "./views/stakeholder/DiscoProfile";
+import UserProfile from "./views/subscriber/UserProfile";
 
 
 var routes = [
@@ -40,6 +42,15 @@ var routes = [
     icon: "tim-icons icon-chat-33",
     component: Chats,
     layout: "/subscriber"
+  },
+
+    {
+        path: "/user-profile",
+        name: "User Profile",
+        icon: "tim-icons icon-single-02",
+        component: UserProfile,
+        layout: "/subscriber",
+        invisible: true
   },
 ];
 

@@ -37,6 +37,7 @@ import {
   Modal
 } from "reactstrap";
 import {logout} from "../../store/actions/auth";
+import {Link} from "react-router-dom";
 
 class StakeholderNavbar extends React.Component {
   constructor(props) {
@@ -200,10 +201,12 @@ class StakeholderNavbar extends React.Component {
                     <p className="d-lg-none">Log out</p>
                   </DropdownToggle>
                   <DropdownMenu className="dropdown-navbar" right tag="ul">
-                    <NavLink tag="li">
+                    <NavLink tag="li" >
+                      <Link to="/stakeholder/disco-admin-profile/">
                       <DropdownItem className="nav-item">Profile</DropdownItem>
+                      </Link>
                     </NavLink>
-                    <NavLink tag="li">
+                    <NavLink tag="li"  href="#">
                       <DropdownItem className="nav-item">Settings</DropdownItem>
                     </NavLink>
                     <DropdownItem divider tag="li" />

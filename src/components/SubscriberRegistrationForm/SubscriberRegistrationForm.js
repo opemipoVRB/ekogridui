@@ -192,7 +192,7 @@ function SubscriberRegistrationForm(props) {
                                                <Input
                                                    id="device"
                                                    value={state.device}
-                                                   placeholder="Meter Number"
+                                                   placeholder="Enter The S/N on your Meter"
                                                    type="text"
                                                    onChange={handleChange}
                                               />
@@ -227,102 +227,3 @@ function SubscriberRegistrationForm(props) {
 }
 
 export default withRouter(SubscriberRegistrationForm);
-
-
-
-
-            {/*<Row>*/}
-                {/*<Col className="pr-md-1" md="6">*/}
-                  {/*<FormGroup>*/}
-                  {/*<input type="email"*/}
-                          {/*className="form-control"*/}
-                          {/*id="email"*/}
-                          {/*aria-describedby="emailHelp"*/}
-                          {/*placeholder="Enter email"*/}
-                          {/*value={state.email}*/}
-                          {/*onChange={handleChange}*/}
-                        {/*/>*/}
-                  {/*</FormGroup>*/}
-                {/*</Col>*/}
-                {/**/}
-              {/*</Row>*/}
-
-                {/*<div className="form-group text-left">*/}
-                  {/*<label htmlFor="exampleInputFirstName">First Name</label>*/}
-                  {/*<input type="first_name"*/}
-                    {/*className="form-control"*/}
-                    {/*id="first_name"*/}
-                    {/*placeholder="Enter First Name"*/}
-                    {/*value={state.first_name}*/}
-                    {/*onChange={handleChange}*/}
-                  {/*/>*/}
-                {/*</div>*/}
-                {/*<div className="form-group text-left">*/}
-                  {/*<label htmlFor="exampleInputLastName">Last Name</label><input type="last_name"*/}
-                    {/*className="form-control"*/}
-                    {/*id="last_name"*/}
-                    {/*placeholder="Enter Last Name"*/}
-                    {/*value={state.last_name}*/}
-                    {/*onChange={handleChange}*/}
-
-                  {/*/>*/}
-                {/*</div>*/}
-
-                {/*<div className="form-group text-left">*/}
-                  {/*<label htmlFor="exampleInputEmail1">Email address</label>*/}
-                  {/*<input type="email"*/}
-                    {/*className="form-control"*/}
-                    {/*id="email"*/}
-                    {/*aria-describedby="emailHelp"*/}
-                    {/*placeholder="Enter email"*/}
-                    {/*value={state.email}*/}
-                    {/*onChange={handleChange}*/}
-                  {/*/>*/}
-                {/*</div>*/}
-                {/*<div className="form-group text-left">*/}
-                  {/*<label htmlFor="exampleInputPassword1">Password</label>*/}
-                  {/*<input type="password"*/}
-                    {/*className="form-control"*/}
-                    {/*id="password1"*/}
-                    {/*placeholder="Password"*/}
-                    {/*value={state.password1}*/}
-                    {/*onChange={handleChange}*/}
-                  {/*/>*/}
-                {/*</div>*/}
-                {/*<div className="form-group text-left">*/}
-                  {/*<label htmlFor="exampleInputPassword1">Confirm Password</label>*/}
-                  {/*<input type="password"*/}
-                    {/*className="form-control"*/}
-                    {/*id="password2"*/}
-                    {/*placeholder="Confirm Password"*/}
-                    {/*value={state.password2}*/}
-                    {/*onChange={handleChange}*/}
-                  {/*/>*/}
-                {/*</div>*/}
-                {/*<div className="form-group text-left">*/}
-                  {/*<label htmlFor="exampleInputAddress">House Address</label><input type="address"*/}
-                    {/*className="form-control"*/}
-                    {/*id="address"*/}
-                    {/*placeholder="Enter House Address"*/}
-                    {/*value={state.address}*/}
-                    {/*onChange={handleChange}*/}
-                  {/*/>*/}
-                {/*</div>*/}
-                {/*<div className="form-group text-left">*/}
-                  {/*<label htmlFor="exampleInputLastName">Phone No</label><input type="phonenumber"*/}
-                    {/*className="form-control"*/}
-                    {/*id="phone_number"*/}
-                    {/*placeholder="Enter Phone Number"*/}
-                    {/*value={state.phone_number}*/}
-                    {/*onChange={handleChange}*/}
-                  {/*/>*/}
-                {/*</div>*/}
-                {/*<div className="form-group text-left">*/}
-                  {/*<label htmlFor="exampleInputDevice">Device</label><input type="device"*/}
-                    {/*className="form-control"*/}
-                    {/*id="device"*/}
-                    {/*placeholder="Enter The S/N on your Meter"*/}
-                    {/*value={state.device}*/}
-                    {/*onChange={handleChange}*/}
-                  {/*/>*/}
-                {/*</div>*/}

@@ -116,6 +116,7 @@ class Sidebar extends React.Component {
           ) : null}
           <Nav>
             {routes.map((prop, key) => {
+              if(prop.invisible) return null;
               if (prop.redirect) return null;
               return (
                 <li

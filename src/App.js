@@ -60,7 +60,6 @@ function App() {
                           <Login  showError={updateErrorMessage}/>
                         </Route>
                         <Route path="/verify-email/:key" component={ConfirmEmail}/>
-                        {/*<Route path="/payment-status" render={(props) => <PaymentStatus {...props}/>}/>*/}
                         <Route path="/payment-status" component={PaymentStatus}/>
                         <Route path="/dummy" component={DummyPage} />
                         <Route path="*" component={NotFoundPage} />
