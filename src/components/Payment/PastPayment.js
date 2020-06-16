@@ -79,9 +79,6 @@ class PastPayment extends Component {
                                 <td className="text-center">{transaction.units_purchased} Kwh</td>
                             </tr>
                     </React.Fragment>);
-                    console.log("Wow", transactions);
-                    console.log("Waow", slice);
-
                     this.setState({
                         pageCount: Math.ceil(transactions.length/ this.state.perPage),
                         transactions: transactionData

@@ -7,6 +7,7 @@ import Messages from "./views/stakeholder/Messages";
 import ChatbotManagement from "./views/stakeholder/ChatbotManagement";
 import Subscribers from "./views/stakeholder/Subscribers";
 import DiscoProfile from "./views/stakeholder/DiscoProfile";
+import Device from "./components/DeviceManagement/Device";
 
 
 var routes =[
@@ -55,21 +56,29 @@ var routes =[
     component: Messages,
     layout: "/stakeholder"
   },
-    {
-        path: "/chatbot-manager",
-        name: "Manage Chatbot",
-        icon: "tim-icons icon-components",
-        component: ChatbotManagement,
-        layout: "/stakeholder"
-    },
-    {
-        path: "/disco-admin-profile",
-        name: "Disco Profile",
-        icon: "tim-icons icon-single-02",
-        component: DiscoProfile,
-        layout: "/stakeholder",
-        invisible: true
+  {
+      path: "/chatbot-manager",
+      name: "Manage Chatbot",
+      icon: "tim-icons icon-components",
+      component: ChatbotManagement,
+      layout: "/stakeholder"
   },
+  {
+      path: "/disco-admin-profile",
+      name: "Disco Profile",
+      icon: "tim-icons icon-single-02",
+      component: DiscoProfile,
+      layout: "/stakeholder",
+      invisible: true
+  },
+  {
+      path: "/device/:deviceID",
+      name: "Device",
+      component: Device,
+      layout: "/stakeholder",
+      invisible: true
+  },
+
 ];
 
 

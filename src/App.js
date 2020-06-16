@@ -18,6 +18,7 @@ import NotFoundPage from "./NotFoundPage";
 import ConfirmEmail from "./components/AccountManagement/ConfirmEmail";
 import PaymentStatus from "./components/Payment/PaymentStatus";
 import DummyPage from "./DummyPage";
+import Device from "./components/DeviceManagement/Device";
 
 const hist = createBrowserHistory();
 

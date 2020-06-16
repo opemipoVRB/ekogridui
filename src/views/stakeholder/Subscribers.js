@@ -39,6 +39,7 @@ class Subscribers extends React.Component {
             address: "",
             phone_number: "",
             device: "",
+            deviceMessage: "",
             deviceWarning:"",
             deviceValidity:false,
             successMessage: null,
@@ -47,6 +48,7 @@ class Subscribers extends React.Component {
             token:Cookies.get('token'),
             perPage: 5,
             currentPage: 0,
+            meter_no: null
         };
 
         this.toggle = this.toggle.bind(this);
@@ -81,19 +83,18 @@ class Subscribers extends React.Component {
             .then((response) => {
                 if (response.status === 200){
                     const results = response.data.results.filter((obj)=>obj);
-                    console.log("Wow", results);
+                    console.log(results);
                     const slice = results.slice(this.state.offset, this.state.offset + this.state.perPage);
-                    console.log("Damn ",slice);
                     const deviceState =["", "running", "hibernated", "shutdown"];
                     const subscriberData = slice.map((result, index) =>
                         <React.Fragment>
                             <tr>
 
                                 <td>{index + 1 }</td>
-                                <td><Link to={"/userprofile/"+result.subscriber.user.id}>{result.subscriber.user.first_name}</Link></td>
-                                <td><Link to={"/userprofile/"+result.subscriber.user.id}>{result.subscriber.user.last_name}</Link></td>
-                                <td><Link to={"/userprofile/"+result.subscriber.user.id}>{result.subscriber.user.email}</Link></td>
-                                <td><Link to={"/device/"+result.meter_no}>{result.meter_no}</Link></td>
+                                <td><Link to={"/stakeholder/userprofile/"+result.subscriber.user.id}>{result.subscriber.user.first_name}</Link></td>
+                                <td><Link to={"/stakeholder/userprofile/"+result.subscriber.user.id}>{result.subscriber.user.last_name}</Link></td>
+                                <td><Link to={"/stakeholder/userprofile/"+result.subscriber.user.id}>{result.subscriber.user.email}</Link></td>
+                                <td><Link to={"/stakeholder/device/"+result.id}>{result.meter_no}</Link></td>
                                 <td>{result.unit_balance}</td>
                                 <td className="text-center">{deviceState[result.state]}</td>
 
@@ -193,12 +194,8 @@ class Subscribers extends React.Component {
       axios.post(API_BASE_URL + 'rest-auth/subscriber/registration/', payload)
         .then((response) => {
           if (response.data.code === 201) {
-            this.setState({
-                successMessage: 'Registration successful.',
-                color: 'success'
-            });
+                alert('Registration successful.');
           }
-              this.toggle();
         }
         )
         .catch((error) => {
@@ -264,12 +261,66 @@ class Subscribers extends React.Component {
          }
 
          this.onDismiss();
+         this.toggle();
+
+     };
+
+
+     createNewDevice =()=>{
+         const meter_no = this.state.meter_no;
+         const token = this.state.token;
+         const params= {
+            "meter_no": meter_no,
+            "state": 3,
+            "unit_balance": 0.0
+};
+       axios(
+           {
+               headers: {
+                   Authorization: `Token ${token}`,
+                   'Content-Type': 'application/json',
+                   'Accept' : 'application/json',
+
+               },
+               method: 'post',
+               url: API_BASE_URL +'gridtracker/api/create/device/',
+               data: params,
+               withCredentials: false
+            })
+             .then((response) => {
+                 console.log("Transact Response  ", response);
+                 if (response.status === 201) {
+                      this.setState({
+                          successMessage:'Device Created',
+                          color: 'success'
+                      });
+                      this.onDismiss();
+                     this.toggleNested();
+                 }
+            })
+            .catch((error) => {
+                if (error.response) {
+                    if (error.response.status === 400){
+                         this.setState({
+                          deviceMessage: error.response.data.meter_no[0],
+                          color: 'warning'
+                      });
+                      this.onDismiss();
+                 }
+
+// {"meter_no":["device with this meter no already exists."]}
+
+
+                    console.log('Error', error.message);
+                }
+            });
+
+
 
      };
 
 
     render(){
-        console.log("Nooo ", this.state.subscribers);
         return(
             <>
                 <div className="content">
@@ -394,10 +445,29 @@ class Subscribers extends React.Component {
                                     <br/>
                             <Button color="success" onClick={this.toggleNested}>Add Device</Button>
                             <Modal isOpen={this.state.nestedModal} toggle={this.toggleNested} onClosed={this.state.closeAll ? this.toggle : undefined}>
-                                <ModalHeader>Nested Modal title</ModalHeader>
-                                <ModalBody>Stuff and things</ModalBody>
+                                <ModalHeader>Add New Device</ModalHeader>
+                                <Alert color={this.state.color} isOpen={this.state.visible} toggle={this.onDismiss}>
+                                    <span>{this.state.deviceMessage}</span>
+                                </Alert>
+                                <ModalBody>
+                                     <Row>
+                                          <Col md="12">
+                                              <Form>
+                                                  <FormGroup>
+                                                      <Input
+                                                          id="meter_no"
+                                                          value={this.state.meter_no}
+                                                          placeholder="Meter No"
+                                                          type="text"
+                                                          onChange={this.handleChange}
+                                                      />
+                                                  </FormGroup>
+                                              </Form>
+                                          </Col>
+                                        </Row>
+                                </ModalBody>
                                 <ModalFooter>
-                                    <Button color="primary" onClick={this.toggleNested}>Done</Button>{' '}
+                                    <Button color="primary" onClick={this.createNewDevice}>Create Device</Button>{' '}
                                     <Button color="secondary" onClick={this.toggleAll}>All Done</Button>
                                 </ModalFooter>
                             </Modal>
@@ -406,11 +476,18 @@ class Subscribers extends React.Component {
                             <Button className="btn-fill" color="primary" onClick={this.toggle}>
                             Create new subscriber
                             </Button>
-                            <Card>
+                            <Card className="card-user">
                                 <CardHeader>
                                     <h5 className="title">Subscribers</h5>
                                 </CardHeader>
                                 <CardBody>
+                                    <CardText />
+                                    <div className="author">
+                                        <div className="block block-one" />
+                                        <div className="block block-two" />
+                                        <div className="block block-three" />
+                                        <div className="block block-four" />
+                                    </div>
                                     <Table className="tablesorter" responsive>
                  <thead className="text-primary">
                  <tr>
