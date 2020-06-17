@@ -1,6 +1,6 @@
 import StakeholderDashboard from "./views/stakeholder/Dashboard";
 import UserProfile from "./views/UserProfile";
-import Map from "./views/Map";
+import Map from "./views/stakeholder/Map";
 import BillingManagement from "./views/stakeholder/BillingManagement";
 import DeviceManagement from "./views/stakeholder/DeviceManagement";
 import Messages from "./views/stakeholder/Messages";
