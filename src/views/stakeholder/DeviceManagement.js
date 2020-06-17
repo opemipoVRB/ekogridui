@@ -132,7 +132,7 @@ class DeviceManagement extends React.Component {
             currentPage: selectedPage,
             offset: offset
         }, () => {
-            this.getAllSubscribers()
+            this.getAllDevices()
         });
 
     };

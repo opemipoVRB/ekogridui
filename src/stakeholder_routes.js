@@ -8,6 +8,7 @@ import ChatbotManagement from "./views/stakeholder/ChatbotManagement";
 import Subscribers from "./views/stakeholder/Subscribers";
 import DiscoProfile from "./views/stakeholder/DiscoProfile";
 import Device from "./components/DeviceManagement/Device";
+import Bill from "./components/BillManagement/Bill";
 
 
 var routes =[
@@ -75,6 +76,13 @@ var routes =[
       path: "/device/:deviceID",
       name: "Device",
       component: Device,
+      layout: "/stakeholder",
+      invisible: true
+  },
+    {
+      path: "/bill/:billID",
+      name: "Bill",
+      component: Bill,
       layout: "/stakeholder",
       invisible: true
   },

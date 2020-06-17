@@ -80,7 +80,7 @@ class BillingManagement extends React.Component {
                             <tr>
                                 <td>{index + 1 }</td>
                                 <td>{data.billing_type}</td>
-                                <td>{data.customer_class}</td>
+                                <td><Link to={"/stakeholder/bill/"+data.id}>{data.customer_class}</Link></td>
                                 <td>{(data.is_approved===true)? "Yes" : "No"}</td>
                                 <td>{(data.rate_applicable===true)? "Yes" : "No"}</td>
                                 <td>{(data.rate_applicable===true)? "₦ "+data.rate_per_kilowatts: "Not Applicable"}</td>

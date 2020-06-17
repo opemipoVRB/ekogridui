@@ -36,7 +36,8 @@ import Label from "reactstrap/es/Label";
 import Cookies from "js-cookie";
 import axios from "axios";
 import {API_BASE_URL} from "../../constants/apiContants";
-import {Link} from "react-router-dom";
+import {createBrowserHistory} from "history";
+const history = createBrowserHistory({forceRefresh:true});
 
 class Device extends React.Component {
     constructor(props) {
@@ -261,6 +262,45 @@ class Device extends React.Component {
 
 
 
+    deleteDevice  = (e) =>  {
+        e.preventDefault();
+        const deviceID = this.state.deviceID;
+        const token = this.state.token;
+
+        axios(
+            {
+                 headers: {
+                   Authorization: `Token ${token}`,
+                   'Content-Type': 'application/json',
+                   'Accept' : 'application/json',
+               },
+                method: 'delete',
+                url: API_BASE_URL +'gridtracker/api/delete/device/'+ deviceID,
+            })
+            .then((response) => {
+                if (response.status === 204){
+                    this.setState({
+                         successMessage:'Device Deleted',
+                         color: 'warning',
+                     });
+                     this.onDismiss();
+                      setTimeout(function() {
+                        history.push("/stakeholder/device-management");
+                        }.bind(this), 2000);
+
+
+
+                }
+            })
+            .catch((error) => {
+                if (error.response) {
+                    console.log('Error', error.message);
+                }
+            });
+    };
+
+
+
     handleChange = (e) => {
     const { id, value } = e.target;
     this.setState(prevState => ({
@@ -386,7 +426,9 @@ class Device extends React.Component {
                   </div>
                 </CardBody>
                 <CardFooter>
-
+                      <Button className="btn-fill" color="danger" type="submit" onClick={ this.deleteDevice}>
+                    Delete
+                  </Button>
                 </CardFooter>
               </Card>
             </Col>
