@@ -13,7 +13,9 @@ const MAPBOX_TOKEN = MapboxAccessToken; // eslint-disable-line
 
 // Source data CSV
 const DATA_URL =
-  'https://raw.githubusercontent.com/visgl/deck.gl-data/master/examples/3d-heatmap/heatmap-data.csv'; // eslint-disable-line
+    "https://raw.githubusercontent.com/opemipoVRB/map-data/master/geodata.csv";
+    // 'https://raw.githubusercontent.com/opemipoVRB/map-data/master/heatmap-data.csv';
+  // 'https://raw.githubusercontent.com/visgl/deck.gl-data/master/examples/3d-heatmap/heatmap-data.csv'; // eslint-disable-line
 
 const ambientLight = new AmbientLight({
   color: [255, 255, 255],
@@ -23,13 +25,13 @@ const ambientLight = new AmbientLight({
 const pointLight1 = new PointLight({
   color: [255, 255, 255],
   intensity: 0.8,
-  position: [-0.144528, 49.739968, 80000]
+  position: [6.851168558562861,7.967300190288024, 80000]
 });
 
 const pointLight2 = new PointLight({
   color: [255, 255, 255],
   intensity: 0.8,
-  position: [-3.807751, 54.104682, 8000]
+  position: [-3.5673585496215434,7.6519710862341, 8000]
 });
 
 const lightingEffect = new LightingEffect({ambientLight, pointLight1, pointLight2});
@@ -42,8 +44,8 @@ const material = {
 };
 
 const INITIAL_VIEW_STATE = {
-  longitude: -1.4157267858730052,
-  latitude: 52.232395363869415,
+  longitude: 6.851168558562861,
+  latitude: 7.967300190288024,
   zoom: 6.6,
   minZoom: 5,
   maxZoom: 15,
@@ -85,7 +87,6 @@ class Map extends React.Component {
         require('d3-request').csv(DATA_URL, (error, response) => {
             if (!error) {
                 const data = response.map(d => [Number(d.lng), Number(d.lat)]);
-                console.log("Call....", data);
                 this.setState({data: data});
             }
         });
@@ -95,6 +96,7 @@ class Map extends React.Component {
     _renderLayers() {
     const radius = 1000, upperPercentile = 100, coverage = 1 ;
     const data = this.state.data;
+    console.log("Map ", data);
 
 
     return [
@@ -120,7 +122,6 @@ class Map extends React.Component {
   }
 
   render() {
-            console.log("Sweet....", this.state.data);
 
     const {mapStyle = 'mapbox://styles/mapbox/dark-v9'} = this.props;
 
@@ -129,24 +130,7 @@ class Map extends React.Component {
     return (
         <div className="content">
             <Row>
-                <Col xs="5">
-                  <Card>
-                    <CardHeader>
-                      <h5 className="title">GIS Data</h5>
-                    </CardHeader>
-                    <CardBody>
-
-
-                    </CardBody>
-                      <CardFooter>
-
-                    </CardFooter>
-                  </Card>
-                </Col>
-
-
-
-                 <DeckGL
+                <DeckGL
                             layers={this._renderLayers()}
                             effects={[lightingEffect]}
                             initialViewState={INITIAL_VIEW_STATE}
