@@ -5,6 +5,7 @@ import {AmbientLight, PointLight, LightingEffect} from '@deck.gl/core';
 import {HexagonLayer} from '@deck.gl/aggregation-layers';
 import DeckGL from '@deck.gl/react';
 import {MapboxAccessToken} from "../../constants/apiContants";
+import {Button, Card, CardBody, CardFooter, CardHeader, Col, Row} from "reactstrap";
 
 
 // Set your mapbox token here
@@ -126,19 +127,40 @@ class Map extends React.Component {
 
 
     return (
-      <DeckGL
-        layers={this._renderLayers()}
-        effects={[lightingEffect]}
-        initialViewState={INITIAL_VIEW_STATE}
-        controller={true}
-      >
-        <StaticMap
-          reuseMaps
-          mapStyle={mapStyle}
-          preventStyleDiffing={true}
-          mapboxApiAccessToken={MAPBOX_TOKEN}
-        />
-      </DeckGL>
+        <div className="content">
+            <Row>
+                <Col xs="5">
+                  <Card>
+                    <CardHeader>
+                      <h5 className="title">GIS Data</h5>
+                    </CardHeader>
+                    <CardBody>
+
+
+                    </CardBody>
+                      <CardFooter>
+
+                    </CardFooter>
+                  </Card>
+                </Col>
+
+
+
+                 <DeckGL
+                            layers={this._renderLayers()}
+                            effects={[lightingEffect]}
+                            initialViewState={INITIAL_VIEW_STATE}
+                            controller={true}
+                        >
+                            <StaticMap
+                                reuseMaps
+                                mapStyle={mapStyle}
+                                preventStyleDiffing={true}
+                                mapboxApiAccessToken={MAPBOX_TOKEN}
+                            />
+                        </DeckGL>
+            </Row>
+        </div>
     );
   }
 
