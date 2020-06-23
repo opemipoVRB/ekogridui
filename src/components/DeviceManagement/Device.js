@@ -286,7 +286,7 @@ class Device extends React.Component {
                      this.onDismiss();
                       setTimeout(function() {
                         history.push("/stakeholder/device-management");
-                        }.bind(this), 2000);
+                        }, 2000);
 
 
 

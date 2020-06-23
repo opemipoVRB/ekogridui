@@ -8,8 +8,7 @@ import {
     CardHeader,
     CardText,
     Col,
-    Form, FormFeedback,
-    FormGroup,
+    Form, FormGroup,
     Input,
     Modal, ModalBody, ModalFooter, ModalHeader,
     Row, Table
@@ -19,7 +18,6 @@ import {API_BASE_URL} from "../../constants/apiContants";
 import Cookies from "js-cookie";
 import ReactPaginate from "react-paginate";
 import {Link} from "react-router-dom";
-import Label from "reactstrap/es/Label";
 
 
 class DeviceManagement extends React.Component {

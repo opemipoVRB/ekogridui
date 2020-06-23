@@ -1,5 +1,4 @@
 import StakeholderDashboard from "./views/stakeholder/Dashboard";
-import UserProfile from "./views/UserProfile";
 import Map from "./views/stakeholder/Map";
 import BillingManagement from "./views/stakeholder/BillingManagement";
 import DeviceManagement from "./views/stakeholder/DeviceManagement";
@@ -11,7 +10,7 @@ import Device from "./components/DeviceManagement/Device";
 import Bill from "./components/BillManagement/Bill";
 
 
-var routes =[
+let routes =[
     {
     path: "/dashboard",
     name: "Dashboard",

@@ -47,44 +47,13 @@ constructor(props) {
 
 
   componentDidMount() {
-     this.getRate();
-     this.getUnitBalance();
+     this.getsubscriberData();
     window.addEventListener('load', this.UnitCalculator);
  }
 
- getUnitBalance =()=>{
-    const user_id = this.state.user;
-    const token = this.state.token;
-    axios(
-        {
-            headers: {
-                Authorization: `Token ${token}`,
-                'Content-Type': 'application/json',
-                'Accept' : 'application/json',
-            },
-
-            method: 'get',
-            url: API_BASE_URL +'gridtracker/api/update/subscriber/transaction/'+ user_id,
-            withCredentials: true
-
-        })
-        .then((response) => {
-            if (response.status === 200) {
-                let stakeholder = response.data.device.stakeholder;
-                this.setState({stakeholder:stakeholder});
-                }
-
-        })
-        .catch((error) => {
-            if (error.response) {
-                console.log('Error', error.message);
-            }
-        });
-
- };
 
 
- getRate=()=> {
+ getsubscriberData=()=> {
     const user_id = this.state.user;
     const token = this.state.token;
     axios(
@@ -102,6 +71,8 @@ constructor(props) {
         })
         .then((response) => {
             if (response.status === 200) {
+                 let stakeholder = response.data.device.stakeholder;
+                 this.setState({stakeholder:stakeholder});
                 if(response.data.device.assigned_bills){
 
                     // Get Billing Rate

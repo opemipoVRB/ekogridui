@@ -17,9 +17,7 @@ import Cookies from 'js-cookie';
 import NotFoundPage from "./NotFoundPage";
 import ConfirmEmail from "./components/AccountManagement/ConfirmEmail";
 import PaymentStatus from "./components/Payment/PaymentStatus";
-import DummyPage from "./DummyPage";
-import Device from "./components/DeviceManagement/Device";
-
+import ChatWidget from "./ChatWidget";
 const hist = createBrowserHistory();
 
 
@@ -62,10 +60,10 @@ function App() {
                         </Route>
                         <Route path="/verify-email/:key" component={ConfirmEmail}/>
                         <Route path="/payment-status" component={PaymentStatus}/>
-                        <Route path="/dummy" component={DummyPage} />
                         <Route path="*" component={NotFoundPage} />
                     </Switch>
-          <AlertComponent errorMessage={errorMessage} hideError={updateErrorMessage}/>
+                    <AlertComponent errorMessage={errorMessage} hideError={updateErrorMessage}/>
+                    <ChatWidget/>
         </div>
     </Router>
   );

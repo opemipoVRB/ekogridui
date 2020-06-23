@@ -3,12 +3,10 @@ import SubscriberDashboard from "views/subscriber/Dashboard.js";
 import Bills from "views/subscriber/Bills.js";
 import MeterController from "views/subscriber/MeterController";
 import Alerts from "views/subscriber/Alerts";
-import Chats from "views/subscriber/Chats";
-import DiscoProfile from "./views/stakeholder/DiscoProfile";
 import UserProfile from "./views/subscriber/UserProfile";
 
 
-var routes = [
+let routes = [
   {
     path: "/dashboard",
     name: "Dashboard",
@@ -35,13 +33,6 @@ var routes = [
         icon: "tim-icons icon-money-coins",
         component: Bills,
         layout: "/subscriber"
-  },
- {
-    path: "/chats",
-    name: "Messages",
-    icon: "tim-icons icon-chat-33",
-    component: Chats,
-    layout: "/subscriber"
   },
 
     {

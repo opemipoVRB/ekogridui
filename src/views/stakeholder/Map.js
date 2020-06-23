@@ -1,11 +1,10 @@
-import React, {Component} from 'react';
-import {render} from 'react-dom';
+import React from 'react';
 import {StaticMap} from 'react-map-gl';
 import {AmbientLight, PointLight, LightingEffect} from '@deck.gl/core';
 import {HexagonLayer} from '@deck.gl/aggregation-layers';
 import DeckGL from '@deck.gl/react';
 import {MapboxAccessToken} from "../../constants/apiContants";
-import {Button, Card, CardBody, CardFooter, CardHeader, Col, Row} from "reactstrap";
+import {Row} from "reactstrap";
 
 
 // Set your mapbox token here

@@ -30,13 +30,11 @@ import {
     Form,
     Input,
     Row,
-    Col, Alert, Table
-} from "reactstrap";
+    Col, Alert} from "reactstrap";
 import Label from "reactstrap/es/Label";
 import Cookies from "js-cookie";
 import axios from "axios";
 import {API_BASE_URL} from "../../constants/apiContants";
-import {Link} from "react-router-dom";
 import {createBrowserHistory} from "history";
 const history = createBrowserHistory({forceRefresh:true});
 
@@ -191,7 +189,7 @@ class Bill extends React.Component {
 
                     setTimeout(function() {
                         history.push("/stakeholder/billing-management");
-                        }.bind(this), 2000);
+                        }, 2000);
 
                 }
             })
