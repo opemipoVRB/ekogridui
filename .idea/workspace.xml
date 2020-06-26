@@ -2,17 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d908807e-de6b-4b25-9b47-f24b970a2aee" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/MessageManagement/MessageManagement.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/MessageManagement/Messenger.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/MessageManagement/Messenger.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ChatWidget.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ChatWidget.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/layouts/Subscriber/Subscriber.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/layouts/Subscriber/Subscriber.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/stakeholder/Messages.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/stakeholder/Messages.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/subscriber/Alerts.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/subscriber/Alerts.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/MessageManagement/Messenger.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MessageManagement/Messenger.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -60,8 +50,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/components/MessageManagement/Messenger.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="486">
-              <caret line="27" column="40" selection-start-line="27" selection-start-column="40" selection-end-line="27" selection-end-column="40" />
+            <state relative-caret-position="468">
+              <caret line="89" column="32" selection-start-line="89" selection-start-column="32" selection-end-line="89" selection-end-column="32" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -254,8 +244,8 @@
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="1920" />
     <option name="y" value="27" />
-    <option name="width" value="960" />
-    <option name="height" value="1048" />
+    <option name="width" value="1920" />
+    <option name="height" value="1053" />
   </component>
   <component name="ProjectId" id="1cjV3dHxE7zZvnovS6tvYxGBbh0" />
   <component name="ProjectInspectionProfilesVisibleTreeState">
@@ -783,7 +773,7 @@
     <layout>
       <window_info id="Structure" order="0" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="1" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="2" visible="true" weight="0.26680896" />
+      <window_info content_ui="combo" id="Project" order="2" visible="true" weight="0.26680896" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32936078" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.34236187" />
@@ -795,7 +785,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32936078" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="11" weight="0.35536295" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.35536295" />
       <window_info anchor="bottom" id="Python Console" order="12" />
       <window_info anchor="bottom" id="TypeScript" order="13" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -1128,8 +1118,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/MessageManagement/Messenger.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="486">
-          <caret line="27" column="40" selection-start-line="27" selection-start-column="40" selection-end-line="27" selection-end-column="40" />
+        <state relative-caret-position="468">
+          <caret line="89" column="32" selection-start-line="89" selection-start-column="32" selection-end-line="89" selection-end-column="32" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>

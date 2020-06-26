@@ -80,6 +80,15 @@ class Messenger extends React.Component {
        if (month < 10) {
            month = '0' + month;
        }
+       if (hour < 10) {
+           hour = '0' + dt;
+       }
+       if (minute < 10) {
+           minute = '0' + minute;
+       }
+       if (second < 10) {
+           second = '0' + second;
+       }
 
         if (this.isToday(time, new Date())){
             return hour +":"+minute +",  Today"
