@@ -14,7 +14,7 @@ class ChatWidget extends React.Component {
             nestedModal:false,
             closeAll:false,
             token:Cookies.get('token'),
-            user:Cookies.get('userID'),
+            userID:Cookies.get('userID'),
             stakeholder:"",
         };
 
@@ -29,7 +29,7 @@ class ChatWidget extends React.Component {
 
 
     getStakeholderInfo=()=>{
-         const user_id = this.state.user;
+         const user_id = this.state.userID;
     const token = this.state.token;
     axios(
         {
@@ -47,6 +47,7 @@ class ChatWidget extends React.Component {
         .then((response) => {
             if (response.status === 200) {
                  let stakeholder = response.data.device.stakeholder;
+                 console.log("HHHH", stakeholder);
                  this.setState({stakeholder:stakeholder});
             }
         })
@@ -59,58 +60,53 @@ class ChatWidget extends React.Component {
     };
 
     getPreviousMessages =()=>{
-
-         const token = this.state.token;
-      axios(
-          {
-              headers: {
-                  Authorization: `Token ${token}`,
-                  'Content-Type': 'application/json',
-                  'Accept' : 'application/json',
-              },
-               method: 'get',
-               url: API_BASE_URL +'gridtracker/api/icontact-us/',
-               withCredentials: true
+        const token = this.state.token;
+        axios(
+            {
+                headers: {
+                    Authorization: `Token ${token}`,
+                    'Content-Type': 'application/json',
+                    'Accept' : 'application/json',
+                },
+                method: 'get',
+                url: API_BASE_URL +'gridtracker/api/icontact-us/',
+                withCredentials: true
             })
-          .then((response) => {
-                 if (response.status === 200) {
-                     console.log(response.data.results)
-
-                     response.data.results.forEach((message, index)=>{
-                         // chat_bot_response,sent_by_subscriber
-                         // message.chat_bot_response ===false &&
+            .then((response) => {
+                if (response.status === 200) {
+                    console.log(response.data.results)
+                    response.data.results.forEach((message, index)=>{
+                        // chat_bot_response,sent_by_subscriber
+                        // message.chat_bot_response ===false &&
                        if (message.sent_by_subscriber===false){
                            addResponseMessage(message.text);
-                           console.log(message.text)
                        }
                        else if(message.sent_by_subscriber===true){
                            addUserMessage(message.text)
-
                        }
                     });
-
-                 }
-             })
-          .catch((error) => {
+                }
+            })
+            .catch((error) => {
                 if (error.response) {
                     console.log('Error', error.message);
                 }
             });
-
     };
 
     saveChatMessage =(message, sender)=>{
-
-
         const token = this.state.token;
+        const stakeholder = this.state.stakeholder;
+        const userID = this.state.userID;
         const payload = {
-                text: "",
+                text: message,
                 sent_by_subscriber: (sender === "subscriber"),
                 chat_bot_response: (sender === "chat-bot"),
-                name: null,
-                stakeholder: null,
+                name: userID,
+                stakeholder: stakeholder,
 
             };
+        console.log(" PAyload", payload);
         axios(
             {
                 headers: {
@@ -148,9 +144,9 @@ class ChatWidget extends React.Component {
             link: 'https://github.com/Wolox/react-chat-widget',
             target: '_blank'
         };
-         // addLinkSnippet(response)
+        // addLinkSnippet(response)
         this.saveChatMessage(newMessage,"subscriber");
-         addResponseMessage('Ok wesome chat!');
+        addResponseMessage('Ok wesome chat!');
   };
 
 

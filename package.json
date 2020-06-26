@@ -19,6 +19,7 @@
     "history": "4.10.1",
     "js-cookie": "^2.2.1",
     "lodash": "^4.17.15",
+    "moment": "^2.27.0",
     "node-sass": "^4.13.1",
     "path": "^0.12.7",
     "perfect-scrollbar": "1.5.0",
@@ -31,6 +32,7 @@
     "react-ga": "^2.7.0",
     "react-google-maps": "9.4.5",
     "react-map-gl": "^5.2.7",
+    "react-md-spinner": "^1.0.0",
     "react-notification-alert": "0.0.12",
     "react-paginate": "^6.3.2",
     "react-paystack": "^2.0.2",
@@ -40,6 +42,7 @@
     "reactstrap": "8.4.1",
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0",
+    "shave": "^2.5.9",
     "views": "^1.0.2"
   },
   "scripts": {

@@ -29,6 +29,7 @@ import Sidebar from "../../components/Sidebar/Sidebar";
 import routes from "../../subscriber_routes";
 
 import logo from "../../assets/img/react-logo.png";
+import ChatWidget from "../../ChatWidget";
 
 
 var ps;
@@ -152,6 +153,7 @@ class Subscriber extends React.Component {
                     bgColor={this.state.backgroundColor}
                     handleBgClick={this.handleBgClick}
                 />
+                <ChatWidget/>
             </>
         )
   }

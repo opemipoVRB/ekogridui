@@ -1,18 +1,19 @@
 import React from "react";
+import Messenger from "../../components/MessageManagement/Messenger";
+
 
 class Messages extends React.Component {
-    render(){
-        return(
-            <>
-                <div className="content">
-
-                </div>
-            </>
 
 
-        );
-    }
-
+        render(){
+            return(
+                <>
+                    <div className="content">
+                        <Messenger/>
+                    </div>
+                </>
+            );
+        }
 }
 
 
