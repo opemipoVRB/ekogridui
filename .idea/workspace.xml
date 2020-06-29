@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d908807e-de6b-4b25-9b47-f24b970a2aee" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ChatWidget.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ChatWidget.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/MessageManagement/Messenger.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MessageManagement/Messenger.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/MessageManagement/Messenger.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MessageManagement/Messenger.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/MeterAlert/MeterAlert.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MeterAlert/MeterAlert.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -27,13 +31,28 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/MessageManagement/MessageManagement.js">
+        <entry file="file://$PROJECT_DIR$/src/components/MessageManagement/Messenger.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1368">
-              <caret line="90" selection-start-line="42" selection-start-column="7" selection-end-line="90" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="288">
+              <caret line="16" column="26" selection-start-line="16" selection-start-column="26" selection-end-line="16" selection-end-column="26" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/constants/apiContants.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="54">
+              <caret line="3" column="13" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/components/MeterAlert/MeterAlert.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="295">
+              <caret line="63" column="26" lean-forward="true" selection-start-line="63" selection-start-column="26" selection-end-line="63" selection-end-column="26" />
             </state>
           </provider>
         </entry>
@@ -41,20 +60,26 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/MessageManagement/Messenger.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="151" column="19" selection-start-line="151" selection-start-column="19" selection-end-line="151" selection-end-column="19" />
+            <state relative-caret-position="2646">
+              <caret line="147" column="14" selection-start-line="147" selection-start-column="3" selection-end-line="147" selection-end-column="14" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/components/MessageManagement/Messenger.js">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="83" column="28" selection-start-line="83" selection-start-column="28" selection-end-line="83" selection-end-column="28" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="18">
+              <caret line="17" selection-start-line="17" selection-end-line="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/App.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret line="18" column="63" selection-start-line="18" selection-start-column="63" selection-end-line="18" selection-end-column="63" />
             </state>
           </provider>
         </entry>
@@ -62,44 +87,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ChatWidget.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1602">
-              <caret line="16" column="41" lean-forward="true" selection-start-line="16" selection-start-column="41" selection-end-line="16" selection-end-column="41" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/DeviceManagement/Device.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="72">
-              <caret line="64" column="50" lean-forward="true" selection-start-line="64" selection-start-column="50" selection-end-line="64" selection-end-column="50" />
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/subscriber_routes.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="19" column="20" selection-start-line="19" selection-start-column="11" selection-end-line="19" selection-end-column="20" />
-              <folding>
-                <element signature="e#1#65#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/views/stakeholder/Messages.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="18">
-              <caret line="2" selection-start-line="2" selection-end-line="2" />
+            <state relative-caret-position="3222">
+              <caret line="185" column="12" selection-start-line="185" selection-start-column="12" selection-end-line="185" selection-end-column="12" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -121,36 +110,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>for</find>
-      <find>ran</find>
-      <find>get(</find>
-      <find>card</find>
-      <find>color</find>
-      <find>forEa</find>
-      <find>post</find>
-      <find>payme</find>
-      <find>stakeholder:</find>
-      <find>stakeholder</find>
-      <find>device</find>
-      <find>stake</find>
-      <find>containerH</find>
-      <find>container</find>
-      <find>wrapper</find>
-      <find>ul</find>
-      <find>&lt;/ul</find>
-      <find>javascript:;</find>
-      <find>ListGroup.Item</find>
-      <find>ChatBox</find>
-      <find>Messaging</find>
-      <find>input</find>
-      <find>Log out</find>
-      <find>Log</find>
       <find>Blo</find>
       <find>font</find>
       <find>activ</find>
       <find>img src</find>
       <find>fo</find>
       <find>formatD</find>
+      <find>new</find>
+      <find>conne</find>
+      <find>onChang</find>
+      <find>rounded-circle</find>
+      <find>.round</find>
+      <find>.rounded-</find>
+      <find>round</find>
+      <find>rounded</find>
+      <find>user_img</find>
+      <find>.user_img{</find>
+      <find>user_img{</find>
+      <find>img_c</find>
+      <find>#6610f2</find>
+      <find>replySubscriber</find>
+      <find>left-</find>
+      <find>real</find>
+      <find>handleSubscriberMessage</find>
+      <find>realTime</find>
+      <find>reply</find>
+      <find>Khali</find>
+      <find>chat_room:</find>
+      <find>with</find>
+      <find>Click</find>
+      <find>text</find>
     </findStrings>
     <replaceStrings>
       <replace>powerConsumption</replace>
@@ -165,6 +154,7 @@
       <replace>#</replace>
       <replace>ListGroupItem</replace>
       <replace>img alt=&quot;avatar&quot; src</replace>
+      <replace>#6163FF</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -173,7 +163,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/index.js" />
         <option value="$PROJECT_DIR$/src/assets/css/black-dashboard-react.css" />
         <option value="$PROJECT_DIR$/src/assets/css/custom.css" />
         <option value="$PROJECT_DIR$/src/assets/scss/black-dashboard-react/bootstrap/_modal.scss" />
@@ -204,9 +193,7 @@
         <option value="$PROJECT_DIR$/src/views/subscriber/Bills.js" />
         <option value="$PROJECT_DIR$/src/layouts/Subscriber/Subscriber.js" />
         <option value="$PROJECT_DIR$/src/App.js" />
-        <option value="$PROJECT_DIR$/src/ChatWidget.js" />
         <option value="$PROJECT_DIR$/src/views/subscriber/Alerts.js" />
-        <option value="$PROJECT_DIR$/src/views/stakeholder/Subscribers.js" />
         <option value="$PROJECT_DIR$/src/components/MessageManagement/Messaging.css" />
         <option value="$PROJECT_DIR$/src/components/MessageManagement/ConversationListItem/ConversationListItem.css" />
         <option value="$PROJECT_DIR$/src/components/MessageManagement/Toolbar/Toolbar.js" />
@@ -222,7 +209,10 @@
         <option value="$PROJECT_DIR$/src/components/MessageManagement/MessageManagement.js" />
         <option value="$PROJECT_DIR$/src/views/stakeholder/Messages.js" />
         <option value="$PROJECT_DIR$/src/components/Navbars/SubscriberNavbar.js" />
+        <option value="$PROJECT_DIR$/src/components/MeterAlert/MeterAlert.js" />
+        <option value="$PROJECT_DIR$/src/views/stakeholder/Subscribers.js" />
         <option value="$PROJECT_DIR$/src/components/MessageManagement/Messenger.css" />
+        <option value="$PROJECT_DIR$/src/ChatWidget.js" />
         <option value="$PROJECT_DIR$/src/components/MessageManagement/Messenger.js" />
       </list>
     </option>
@@ -242,10 +232,10 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1920" />
-    <option name="y" value="27" />
-    <option name="width" value="1920" />
-    <option name="height" value="1053" />
+    <option name="x" value="2688" />
+    <option name="y" value="375" />
+    <option name="width" value="930" />
+    <option name="height" value="810" />
   </component>
   <component name="ProjectId" id="1cjV3dHxE7zZvnovS6tvYxGBbh0" />
   <component name="ProjectInspectionProfilesVisibleTreeState">
@@ -279,7 +269,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -302,7 +291,28 @@
               <item name="ekogridui" type="b2602c69:ProjectViewProjectNode" />
               <item name="ekogridui" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ekogridui" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ekogridui" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+              <item name="scss" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ekogridui" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ekogridui" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ekogridui" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ekogridui" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="AccountManagement" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ekogridui" type="b2602c69:ProjectViewProjectNode" />
@@ -324,19 +334,6 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
               <item name="MeterAlert" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ekogridui" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ekogridui" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="StakeholderRegistrationForm" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ekogridui" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ekogridui" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="constants" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ekogridui" type="b2602c69:ProjectViewProjectNode" />
@@ -375,6 +372,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="ProjectViewState">
@@ -773,7 +771,31 @@
     <layout>
       <window_info id="Structure" order="0" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="1" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="2" visible="true" weight="0.26680896" />
+      <window_info active="true" content_ui="combo" id="Project" order="2" visible="true" weight="0.18463181" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32936078" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.24918744" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32936078" />
+      <window_info anchor="bottom" id="Docker" order="7" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.32936078" />
+      <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.3217768" />
+      <window_info anchor="bottom" id="Python Console" order="12" />
+      <window_info anchor="bottom" id="TypeScript" order="13" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="SciView" order="3" />
+      <window_info anchor="right" id="Database" order="4" visible="true" weight="0.008004269" />
+    </layout>
+    <layout-to-restore>
+      <window_info id="Structure" order="0" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="1" side_tool="true" />
+      <window_info active="true" content_ui="combo" id="Project" order="2" visible="true" weight="0.27001068" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32936078" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.34236187" />
@@ -785,31 +807,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32936078" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.51570964" />
-      <window_info anchor="bottom" id="Python Console" order="12" />
-      <window_info anchor="bottom" id="TypeScript" order="13" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="SciView" order="3" />
-      <window_info anchor="right" id="Database" order="4" weight="0.32939914" />
-    </layout>
-    <layout-to-restore>
-      <window_info id="Structure" order="0" side_tool="true" weight="0.25" />
-      <window_info id="Favorites" order="1" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="2" visible="true" weight="0.13020277" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32936078" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.34236187" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.32936078" />
-      <window_info anchor="bottom" id="Docker" order="7" />
-      <window_info anchor="bottom" id="Version Control" order="8" weight="0.32936078" />
-      <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="11" weight="0.35536295" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.21343446" />
       <window_info anchor="bottom" id="Python Console" order="12" />
       <window_info anchor="bottom" id="TypeScript" order="13" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -855,42 +853,10 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/components/ChatRoom/ChatRoom.css" />
-    <entry file="file://$PROJECT_DIR$/node_modules/react-scripts/lib/react-app.d.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="21" column="15" selection-start-line="21" selection-start-column="15" selection-end-line="21" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/ChatRoom/ChatRoomList.js" />
-    <entry file="file://$PROJECT_DIR$/src/components/ChatRoom/ChatRoom.js" />
-    <entry file="file://$PROJECT_DIR$/src/views/subscriber/Chats.js" />
-    <entry file="file://$PROJECT_DIR$/src/assets/css/black-dashboard-react.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="164">
-          <caret line="9962" column="18" selection-start-line="9962" selection-start-column="11" selection-end-line="9962" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ChatWidget.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="16" column="29" selection-start-line="16" selection-start-column="29" selection-end-line="16" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/views/subscriber/UserProfile.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2682">
           <caret line="177" column="61" selection-start-line="177" selection-start-column="29" selection-end-line="177" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="17" selection-start-line="17" selection-end-line="17" />
         </state>
       </provider>
     </entry>
@@ -911,34 +877,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/App.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="18" column="63" selection-start-line="18" selection-start-column="63" selection-end-line="18" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/subscriber/Dashboard.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="60" column="24" selection-start-line="60" selection-start-column="24" selection-end-line="60" selection-end-column="24" />
-          <folding>
-            <element signature="e#794#1030#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/Payment/Payment.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1116">
           <caret line="66" selection-start-line="66" selection-end-line="66" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/StakeholderRegistrationForm/StakeholderRegistrationForm.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="42" column="43" selection-start-line="42" selection-start-column="43" selection-end-line="42" selection-end-column="43" />
         </state>
       </provider>
     </entry>
@@ -951,13 +893,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/views/Home.js">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/subscriber/Alerts.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/reactstrap/src/ListGroup.js">
       <provider selected="true" editor-type-id="text-editor">
@@ -973,24 +908,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/MeterAlert/MeterAlert.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="1" column="39" lean-forward="true" selection-start-line="1" selection-start-column="39" selection-end-line="1" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/views/stakeholder/DiscoProfile.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2034">
           <caret line="141" column="34" selection-start-line="141" selection-start-column="34" selection-end-line="141" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/stakeholder/DeviceManagement.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="10" column="10" selection-start-line="10" selection-start-column="10" selection-end-line="10" selection-end-column="10" />
         </state>
       </provider>
     </entry>
@@ -1005,13 +926,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="54">
           <caret line="3" column="13" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/stakeholder/Subscribers.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="711">
-          <caret line="51" selection-start-line="51" selection-end-line="51" />
         </state>
       </provider>
     </entry>
@@ -1049,13 +963,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/UserProfile.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="177">
+          <caret line="108" selection-start-line="108" selection-end-line="108" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/MessageManagement/MessageManagement.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1368">
           <caret line="90" selection-start-line="42" selection-start-column="7" selection-end-line="90" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1063,9 +981,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
           <caret line="19" column="20" selection-start-line="19" selection-start-column="11" selection-end-line="19" selection-end-column="20" />
-          <folding>
-            <element signature="e#1#65#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1073,56 +988,137 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="18">
           <caret line="2" selection-start-line="2" selection-end-line="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/stakeholder/DeviceManagement.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="10" column="10" selection-start-line="10" selection-start-column="10" selection-end-line="10" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/subscriber/MeterController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="17" column="26" selection-start-line="17" selection-start-column="22" selection-end-line="17" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/PowerButton/PowerButton.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1150">
+          <caret line="11" column="15" selection-start-line="11" selection-start-column="15" selection-end-line="11" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/subscriber/Dashboard.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="60" column="24" selection-start-line="60" selection-start-column="24" selection-end-line="60" selection-end-column="24" />
           <folding>
-            <element signature="e#0#26#0" expanded="true" />
+            <element signature="e#794#1030#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/UserProfile.js">
+    <entry file="file://$PROJECT_DIR$/src/views/subscriber/Alerts.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="108" selection-start-line="108" selection-end-line="108" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
+        <state relative-caret-position="144">
+          <caret line="9" column="26" lean-forward="true" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/StakeholderRegistrationForm/StakeholderRegistrationForm.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="15" column="16" lean-forward="true" selection-start-line="15" selection-start-column="16" selection-end-line="15" selection-end-column="16" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/DeviceManagement/Device.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="64" column="50" lean-forward="true" selection-start-line="64" selection-start-column="50" selection-end-line="64" selection-end-column="50" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
+        <state relative-caret-position="-4321">
+          <caret line="64" column="50" selection-start-line="64" selection-start-column="50" selection-end-line="64" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/AccountManagement/AccountManagement.css">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/stakeholder/Subscribers.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7470">
+          <caret line="434" column="101" selection-start-line="434" selection-start-column="89" selection-end-line="434" selection-end-column="101" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/assets/css/nucleo-icons.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-8967">
+          <caret line="16" column="26" lean-forward="true" selection-start-line="16" selection-start-column="26" selection-end-line="16" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/assets/css/black-dashboard-react.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-45655">
+          <caret line="9965" column="20" lean-forward="true" selection-start-line="9965" selection-start-column="20" selection-end-line="9965" selection-end-column="20" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/MessageManagement/Messenger.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="151" column="19" selection-start-line="151" selection-start-column="19" selection-end-line="151" selection-end-column="19" />
+        <state relative-caret-position="2646">
+          <caret line="147" column="14" selection-start-line="147" selection-start-column="3" selection-end-line="147" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/App.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="18" column="63" selection-start-line="18" selection-start-column="63" selection-end-line="18" selection-end-column="63" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ChatWidget.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1602">
-          <caret line="16" column="41" lean-forward="true" selection-start-line="16" selection-start-column="41" selection-end-line="16" selection-end-column="41" />
+        <state relative-caret-position="3222">
+          <caret line="185" column="12" selection-start-line="185" selection-start-column="12" selection-end-line="185" selection-end-column="12" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/variables/charts.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/MessageManagement/Messenger.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="83" column="28" selection-start-line="83" selection-start-column="28" selection-end-line="83" selection-end-column="28" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="288">
+          <caret line="16" column="26" selection-start-line="16" selection-start-column="26" selection-end-line="16" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/constants/apiContants.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="3" column="13" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/MeterAlert/MeterAlert.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="295">
+          <caret line="63" column="26" lean-forward="true" selection-start-line="63" selection-start-column="26" selection-end-line="63" selection-end-column="26" />
         </state>
       </provider>
     </entry>

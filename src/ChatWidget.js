@@ -3,7 +3,7 @@ import {addLinkSnippet, addResponseMessage, addUserMessage, setQuickButtons, Wid
 import 'react-chat-widget/lib/styles.css';
 import "ChatWidget.css"
 import axios from "axios";
-import {API_BASE_URL} from "./constants/apiContants";
+import {API_BASE_URL, WS_BASE_URL} from "./constants/apiContants";
 import Cookies from "js-cookie";
 
 class ChatWidget extends React.Component {
@@ -60,6 +60,7 @@ class ChatWidget extends React.Component {
     };
 
     getPreviousMessages =()=>{
+        this.connect(this.state.userID);
         const token = this.state.token;
         axios(
             {
@@ -92,6 +93,8 @@ class ChatWidget extends React.Component {
                     console.log('Error', error.message);
                 }
             });
+
+
     };
 
     saveChatMessage =(message, sender)=>{
@@ -124,6 +127,7 @@ class ChatWidget extends React.Component {
         .then((response) => {
             if (response.status === 201) {
 
+
             }
         })
         .catch((error) => {
@@ -146,8 +150,51 @@ class ChatWidget extends React.Component {
         };
         // addLinkSnippet(response)
         this.saveChatMessage(newMessage,"subscriber");
-        addResponseMessage('Ok wesome chat!');
+          this.realTimeChat(newMessage);
   };
+
+
+
+
+     connect = (chat_room) =>{
+            let ws = new  WebSocket(WS_BASE_URL+"gridtracker/chat/" + chat_room+"/" );
+             console.log("WS 2 ", ws);
+            this.setState({ws:ws});
+
+     };
+
+
+
+    realTimeChat = (message) =>{
+       let ws = this.state.ws;
+       console.log("WS ", ws);
+        ws.onopen = () =>{
+
+
+            };
+        ws.send(JSON.stringify({
+                'message': {
+                    'subscriber': true,
+                    text: message,
+                }
+            }));
+        console.log("MEssage ", message);
+
+
+
+        ws.onmessage = e =>{
+            let data = JSON.parse(e.data);
+            if(data.message.subscriber){
+                console.log("Subscriber Message", data);
+
+
+            }
+            else if(data.message.stakeholder) {
+                console.log("Stakeholder Message", data);
+                addResponseMessage(data.message.text);
+            }
+        };
+    };
 
 
     handleQuickButtonClicked = data => {

@@ -292,10 +292,10 @@ class MeterAlert extends Component {
 
 
     render(){
-        console.log("LCD", this.state.threshold);
-        console.log("RUN", this.state.run);
-        console.log("Trigger", this.state.trigger);
-        console.log("Min LCD", this.state.max);
+        // console.log("LCD", this.state.threshold);
+        // console.log("RUN", this.state.run);
+        // console.log("Trigger", this.state.trigger);
+        // console.log("Min LCD", this.state.max);
         return(
             <div>
                 <MiniLCD reading={(this.state.run===false) ? parseInt(this.state.max) : parseInt(this.state.threshold)}/>

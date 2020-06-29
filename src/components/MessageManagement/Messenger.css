@@ -81,15 +81,15 @@
     background-color: rgba(0,0,0,0.3);
 }
 .user_img{
-    height: 70px;
-    width: 70px;
-    border:1.5px solid #f5f6fa;
+    height: 70px!important;
+    width: 70px!important;
+    border:2px solid #6163FF;
 
 }
 .user_img_msg{
     height: 40px;
     width: 40px;
-    border:1.5px solid #f5f6fa;
+    border:2px solid #6163FF;
 
 }
 .img_cont{
@@ -109,7 +109,7 @@
     border-radius: 50%;
     bottom: 0.2em;
     right: 0.4em;
-    border:1.5px solid white;
+    border:2px solid white;
 }
 .offline{
     background-color: #c23616 !important;
