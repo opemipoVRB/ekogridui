@@ -17,6 +17,8 @@ import Cookies from 'js-cookie';
 import NotFoundPage from "./NotFoundPage";
 import ConfirmEmail from "./components/AccountManagement/ConfirmEmail";
 import PaymentStatus from "./components/Payment/PaymentStatus";
+import PrivacyPolicy from "./components/PrivacyPolicy/PrivacyPolicy";
+import TandC from "./components/PrivacyPolicy/TandC";
 const hist = createBrowserHistory();
 
 
@@ -57,8 +59,11 @@ function App() {
                         <Route path="/login">
                           <Login  showError={updateErrorMessage}/>
                         </Route>
+                        <Route path="/download-mobile-app" component={() => { window.location = 'https://play.google.com/store/apps/details?id=com.phainix.ekogrid'; return null;} }/>
                         <Route path="/verify-email/:key" component={ConfirmEmail}/>
                         <Route path="/payment-status" component={PaymentStatus}/>
+                        <Route path="/privacy" component={PrivacyPolicy}/>
+                        <Route path="/terms-and-condition" component={TandC}/>
                         <Route path="*" component={NotFoundPage} />
                     </Switch>
                     <AlertComponent errorMessage={errorMessage} hideError={updateErrorMessage}/>
