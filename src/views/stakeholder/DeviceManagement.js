@@ -269,7 +269,7 @@ class DeviceManagement extends React.Component {
                                 <CardHeader>
                                     <h5 className="title">Devices</h5>
                                 </CardHeader>
-                                <CardBody>
+                                <CardBody className="p-0">
                                      <CardText />
                                     <div className="author">
                                         <div className="block block-one" />
@@ -277,7 +277,7 @@ class DeviceManagement extends React.Component {
                                         <div className="block block-three" />
                                         <div className="block block-four" />
                                     </div>
-                                    <Table className="tablesorter" responsive>
+                                    <Table className="tablesorter  mb-0" responsive >
                  <thead className="text-primary">
                  <tr>
                      <th>S/N</th>
@@ -291,6 +291,7 @@ class DeviceManagement extends React.Component {
                   {this.state.subscribers}
                  </tbody>
              </Table>
+
                <ReactPaginate
                     previousLabel={"prev"}
                     nextLabel={"next"}
@@ -306,8 +307,10 @@ class DeviceManagement extends React.Component {
                  />
 
 
+
                                 </CardBody>
                                 <CardFooter>
+
 
                                 </CardFooter>
                             </Card>
