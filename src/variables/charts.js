@@ -84,7 +84,7 @@ let chartExample1 = {
       ],
       datasets: [
         {
-          label: "My First dataset",
+          label: "Daily Revenue",
           fill: true,
           backgroundColor: gradientStroke,
           borderColor: "#1f8ef1",
@@ -114,22 +114,14 @@ let chartExample1 = {
 
     return {
       labels: [
-        "JAN",
-        "FEB",
-        "MAR",
-        "APR",
-        "MAY",
-        "JUN",
-        "JUL",
-        "AUG",
-        "SEP",
-        "OCT",
-        "NOV",
-        "DEC"
+        "Week 1",
+        "Week 2",
+        "Week 3",
+        "Week 4",
       ],
       datasets: [
         {
-          label: "My First dataset",
+          label: "Weekly Revenue",
           fill: true,
           backgroundColor: gradientStroke,
           borderColor: "#1f8ef1",
@@ -143,7 +135,7 @@ let chartExample1 = {
           pointHoverRadius: 4,
           pointHoverBorderWidth: 15,
           pointRadius: 4,
-          data: [80, 120, 105, 110, 95, 105, 90, 100, 80, 95, 70, 120]
+          data: [ 100, 80, 95, 120]
         }
       ]
     };
@@ -174,7 +166,7 @@ let chartExample1 = {
       ],
       datasets: [
         {
-          label: "My First dataset",
+          label: "Monthly Revenue",
           fill: true,
           backgroundColor: gradientStroke,
           borderColor: "#1f8ef1",
@@ -189,6 +181,51 @@ let chartExample1 = {
           pointHoverBorderWidth: 15,
           pointRadius: 4,
           data: [60, 80, 65, 130, 80, 105, 90, 130, 70, 115, 60, 130]
+        }
+      ]
+    };
+  },
+    data4: canvas => {
+    let ctx = canvas.getContext("2d");
+
+    let gradientStroke = ctx.createLinearGradient(0, 230, 0, 50);
+
+    gradientStroke.addColorStop(1, "rgba(29,140,248,0.2)");
+    gradientStroke.addColorStop(0.4, "rgba(29,140,248,0.0)");
+    gradientStroke.addColorStop(0, "rgba(29,140,248,0)"); //blue colors
+
+    return {
+      labels: [
+        "2020",
+        "2021",
+        "2022",
+        "2023",
+        "2024",
+        "2025",
+        "2026",
+        "2027",
+        "2028",
+        "2029",
+        "2030",
+        "2031"
+      ],
+      datasets: [
+        {
+          label: "Annual Revenue",
+          fill: true,
+          backgroundColor: gradientStroke,
+          borderColor: "#1f8ef1",
+          borderWidth: 2,
+          borderDash: [],
+          borderDashOffset: 0.0,
+          pointBackgroundColor: "#1f8ef1",
+          pointBorderColor: "rgba(255,255,255,0)",
+          pointHoverBackgroundColor: "#1f8ef1",
+          pointBorderWidth: 20,
+          pointHoverRadius: 4,
+          pointHoverBorderWidth: 15,
+          pointRadius: 4,
+          data: [800000, 1200000, 1050000, 1100000, 950000, 1050000, 900000, 1000000, 800000, 950000, 700000, 1200000]
         }
       ]
     };

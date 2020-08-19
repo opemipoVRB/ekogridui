@@ -75,7 +75,7 @@ class Payment extends Component {
                  console.log("Transact Response  ", response);
                  if (response.status === 201) {
                      console.log("Data ", response);
-                     this.redirectToPaymentStatus();
+                     this.creditStakeholder();
                  }
             })
             .catch((error) => {
@@ -133,6 +133,55 @@ class Payment extends Component {
 
 
   };
+
+
+  getWeekOfTheMonth =()=>{
+      let dated=new Date();
+      let weekNo =(0| dated.getDate()/7)+1;
+      return weekNo
+  };
+
+
+  creditStakeholder =()=>{
+      const token = this.state.token;
+      const amount = this.props.amount;
+      const stakeholder = this.props.stakeholder;
+      const week = this.getWeekOfTheMonth();
+      const params= {
+            "amount": amount,
+            "week": week,
+            "stakeholder": stakeholder
+      };
+      axios(
+           {
+               headers: {
+                   Authorization: `Token ${token}`,
+                   'Content-Type': 'application/json',
+                   'Accept' : 'application/json',
+
+               },
+               method: 'post',
+               url: API_BASE_URL +'gridtracker/api/create/revenue/',
+               data: params,
+               withCredentials: false
+            })
+             .then((response) => {
+                 console.log("Transact Response  ", response);
+                 if (response.status === 201) {
+                     this.redirectToPaymentStatus();
+                     console.log("Data ", response);
+                 }
+            })
+            .catch((error) => {
+                if (error.response) {
+                    console.log('Error', error.message);
+                }
+            });
+
+  };
+
+
+
 
 
 

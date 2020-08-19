@@ -209,6 +209,7 @@ class SubscriberDashboard extends React.Component {
                 }
             });
     };
+
   setBgChartData = name => {
     this.setState({
       bigChartData: name
@@ -325,7 +326,7 @@ class SubscriberDashboard extends React.Component {
         labels: this.state.pLabels,
         datasets: [
             {
-                label: "Power Consumed in Kwh",
+                label: "Recent Power Consumed in Kwh",
                 fill: true,
                 backgroundColor: gradientStroke,
                 borderColor: "#1f8ef1",
